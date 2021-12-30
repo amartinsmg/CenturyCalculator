@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<title>Century Calculator</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="Style.css"/>
+</head>
+<body>
+	<main class="Content">
+		<h1 class="Page-tytle">Century Calculator</h1>
+		<form class="Input-form" onsubmit="return false">
+			<div>
+				<label for="yearInput">Year:</label>
+				<input type="number" min="1" max="100000" id="yearInput" onkeydown="Enter(event)"/>
+			</div>
+			<div class="Calculate-button">
+				<input id="Calculate-button" type="button" onclick="calculator()" value="Calculate"/>
+			</div>
+		</form>
+		<script src="Century Calculator.js"></script>
+		<div class="Result">
+			<label>Century: </label>
+			<div id="text1"></div>
+		</div>
+	</main>
+</body>
+</html>

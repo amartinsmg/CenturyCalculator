@@ -156,6 +156,13 @@ function calculator() {
 //console.log(century(315)); /* to test */
 
 
+function Enter(myEvent) {
+    if(myEvent.keyCode == 13){
+        calculator();
+    }
+}
+
+
 var today = new Date, thisYear = today.getFullYear();
 
 //console.log(today + "\n" + thisYear.toString()); /* to test */
