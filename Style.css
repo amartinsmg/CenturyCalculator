@@ -26,7 +26,7 @@ body {
     color: #138fe2;
 }
 
-.Input-form {
+#Input-form {
     display: flex;
     flex-direction: column;
     gap: 30px;

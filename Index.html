@@ -5,23 +5,23 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="Style.css"/>
+		<script src="Century Calculator.js" defer></script>
 </head>
 <body>
 	<main class="Content">
 		<h1 class="Page-tytle">Century Calculator</h1>
-		<form class="Input-form" onsubmit="return false">
+		<form id="Input-form">
 			<div>
 				<label for="yearInput">Year:</label>
-				<input type="number" min="1" max="100000" id="yearInput" onkeydown="Enter(event)"/>
+				<input type="number" min="1" max="399900" id="yearInput"/>
 			</div>
 			<div>
-				<input id="Calculate-button" type="button" onclick="calculator()" value="Calculate"/>
+				<input id="Calculate-button" type="button" value="Calculate"/>
 			</div>
 		</form>
-		<script src="Century Calculator.js"></script>
 		<div class="Result">
 			<label>Century: </label>
-			<div id="text1"></div>
+			<div id="textOutput"></div>
 		</div>
 	</main>
 </body>
