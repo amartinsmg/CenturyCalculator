@@ -9,47 +9,45 @@ body {
     background-color: #242424;
 }
 
-.Content {
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: x-large;
-    color: #FFFFFF;
-    text-align: center;
     padding: 20px;
     gap: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    text-align: center;
+    color: #FFFFFF;
 }
 
-.Page-tytle {
+.page-title {
     font-weight: 900;
     color: #138fe2;
 }
 
-#Input-form {
+#input-form {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-#yearInput {
-    font-size: 0.9em;
-    padding: 2.5px;
-}
-
-#Calculate-button {
-    font-size: 1em;
+.values-inputs {
     padding: 3px;
-    background-color: #f0f0f0;
-    border-radius: 9px;
+    border-radius: 6px;
+    font-size: 0.9em;
 }
 
-#Calculate-button:hover {
+#calculate-button {
+    background-color: #f0f0f0;
+}
+
+#calculate-button:hover {
     background-color: #bdbdbd;
 }
 
 
-.Result {
+.result {
     display: flex;
     flex-direction: row;
     gap: 20px;

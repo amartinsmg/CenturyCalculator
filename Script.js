@@ -1,6 +1,6 @@
-const YEARINPUT = document.getElementById("yearInput"),
-CALCULATEBUTTON = document.getElementById("Calculate-button"),
-FORM = document.getElementById("Input-form");
+const YEARINPUT = document.getElementById("year-input"),
+CALCULATEBUTTON = document.getElementById("calculate-button"),
+FORM = document.getElementById("input-form");
 
 //Initial value of YEARINPUT as the current year
 
@@ -168,7 +168,7 @@ function century(year) {
 
 function calculate() {
     let input = YEARINPUT.value;
-    document.getElementById("textOutput").innerHTML = romanNumerals(century(input));
+    document.getElementById("text-output").innerHTML = romanNumerals(century(input));
 };
 
 
