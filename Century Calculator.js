@@ -1,10 +1,23 @@
+const YEARINPUT = document.getElementById("yearInput"),
+CALCULATEBUTTON = document.getElementById("Calculate-button"),
+FORM = document.getElementById("Input-form");
+
+//Initial value of YEARINPUT as the current year
+
+const TODAY = new Date;
+
+//console.log(TODAY + "\n" + TODAY.getFullYear().toString()); //Ok
+
+YEARINPUT.value = TODAY.getFullYear().toString();
+
+
 //Function the transforms the number into Roman numerals
 
 function romanNumerals(num) {
 
-//    console.log(num);  /* to test */
+    //console.log(num);  //Ok
 
-    var intermediary = [], romanNum = "";
+    let intermediary = [], romanNum = "";
     if (isNaN(num) || !Number.isInteger(num) || num <= 0 || num >= 4000) {
         return null;
     };
@@ -13,7 +26,7 @@ function romanNumerals(num) {
         intermediary.push(Number(i));
     };
 
-    //    console.log(intermediary) /*to test*/
+    //console.log(intermediary) //Ok
 
     intermediary = intermediary.reverse();
     if (intermediary.length == 4) {
@@ -138,49 +151,35 @@ function romanNumerals(num) {
 //Function that calculates the century
 
 function century(year) {
-    var cent;
+    let cent;
     year = parseInt(year);
 
-    //console.log(year) /*to test*/
+    //console.log(year) //Ok
 
     year % 100 == 0 ? cent = year / 100 : cent = Math.floor(year / 100) + 1
     return cent;
 };
 
-//console.log(century(1315)); /* to test */
-//console.log(romanNumerals(century(1945))); /* to test */
+//console.log(century(1315)); //Ok
+//console.log(romanNumerals(century(1945))); //Ok
 
 
-var yearInput = document.getElementById("yearInput");
-var calculate = document.getElementById("Calculate-button");
-var form = document.getElementById("Input-form");
+//Function that calls century() and write the result in document
 
-
-//Initial value of yearInput = current year
-
-var today = new Date;
-
-//console.log(today + "\n" + today.getFullYear().toString()); /* to test */
-
-yearInput.value = today.getFullYear().toString();
-
-
-//Function that call century() and write the result in document
-
-function calculator() {
-    input = yearInput.value;
+function calculate() {
+    let input = YEARINPUT.value;
     document.getElementById("textOutput").innerHTML = romanNumerals(century(input));
 };
 
 
-//Call calculator() when Enter key is pressed or the calculate btton is clicked
+//Call calculate() when Enter key is pressed or the calculate btton is clicked
 
-yearInput.onkeydown = (event) => {
-    if (event.keyCode == 13) {
-        calculator();
+YEARINPUT.onkeydown = (e) => {
+    if (e.keyCode == 13) {
+        calculate();
     }
 }
-calculate.onclick = () => calculator();
-form.onsubmit = () => {
+CALCULATEBUTTON.onclick = () => {
+    calculate();
     return false;
 }
