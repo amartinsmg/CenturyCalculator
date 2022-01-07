@@ -4,11 +4,11 @@ FORM = document.getElementById("input-form");
 
 //Initial value of YEARINPUT as the current year
 
-const TODAY = new Date;
+const Today = new Date;
 
-//console.log(TODAY + "\n" + TODAY.getFullYear().toString()); //Ok
+//console.log(Today + "\n" + Today.getFullYear().toString()); //Ok
 
-YEARINPUT.value = TODAY.getFullYear().toString();
+YEARINPUT.value = Today.getFullYear().toString();
 
 
 //Function the transforms the number into Roman numerals
@@ -16,136 +16,50 @@ YEARINPUT.value = TODAY.getFullYear().toString();
 function romanNumerals(num) {
 
     //console.log(num);  //Ok
-
-    let intermediary = [], romanNum = "";
+    
     if (isNaN(num) || !Number.isInteger(num) || num <= 0 || num >= 4000) {
         return null;
     };
-    num = num.toString();
-    for (let i of num) {
-        intermediary.push(Number(i));
-    };
 
-    //console.log(intermediary) //Ok
+    const INTERMEDIARY = [
+        [1000, 'M'],
+        [900, 'CM'],
+        [500, 'D'],
+        [400, 'CD'],
+        [100, 'C'],
+        [90, 'XC'],
+        [50, 'L'],
+        [40, 'XL'],
+        [10, 'X'],
+        [9, 'IX'],
+        [5, 'V'],
+        [4, 'IV'],
+        [1, 'I']
+    ];
 
-    intermediary = intermediary.reverse();
-    if (intermediary.length == 4) {
-        switch (intermediary[3]) {
-            case 3:
-                romanNum += "MMM";
+/*     for(let i of INTERMEDIARY){
+        console.log(i);
+    } //Ok */
+
+    let romanNum = "";
+
+    while(num > 0){
+        for(let i of INTERMEDIARY){
+            if(num >= i[0]){
+                romanNum += i[1];
+                num -= i[0];
+
+                //console.log(romanNum, "\n", num); //Ok
+
                 break;
-            case 2:
-                romanNum += "MM";
-                break;
-            case 1:
-                romanNum += "M";
-                break;
-            default:
-                romanNum += "";
-        };
-        intermediary.pop();
+            }
+        }
     }
-    if (intermediary.length == 3) {
-        switch (intermediary[2]) {
-            case 9:
-                romanNum += "CM";
-                break;
-            case 8:
-                romanNum += "DCCC";
-                break;
-            case 7:
-                romanNum += "DCC";
-                break;
-            case 6:
-                romanNum += "DC";
-                break;
-            case 5:
-                romanNum += "D";
-                break;
-            case 4:
-                romanNum += "CD";
-                break;
-            case 3:
-                romanNum += "CCC";
-                break;
-            case 2:
-                romanNum += "CC";
-                break;
-            case 1:
-                romanNum += "C";
-                break;
-            default:
-                romanNum += "";
-        };
-        intermediary.pop();
-    }
-    if (intermediary.length == 2) {
-        switch (intermediary[1]) {
-            case 9:
-                romanNum += "XC";
-                break;
-            case 8:
-                romanNum += "LXXX";
-                break;
-            case 7:
-                romanNum += "LXX";
-                break;
-            case 6:
-                romanNum += "LX";
-                break;
-            case 5:
-                romanNum += "L";
-                break;
-            case 4:
-                romanNum += "XL";
-                break;
-            case 3:
-                romanNum += "XXX";
-                break;
-            case 2:
-                romanNum += "XX";
-                break;
-            case 1:
-                romanNum += "X";
-                break;
-            default:
-                romanNum += "";
-        };
-        intermediary.pop();
-    }
-    switch (intermediary[0]) {
-        case 9:
-            romanNum += "IX";
-            break;
-        case 8:
-            romanNum += "VIII";
-            break;
-        case 7:
-            romanNum += "VII";
-            break;
-        case 6:
-            romanNum += "VI";
-            break;
-        case 5:
-            romanNum += "V";
-            break;
-        case 4:
-            romanNum += "IV";
-            break;
-        case 3:
-            romanNum += "III";
-            break;
-        case 2:
-            romanNum += "II";
-            break;
-        case 1:
-            romanNum += "I";
-            break;
-        default:
-            romanNum += "";
-    };
+
     return romanNum;
 };
+
+//console.log(romanNumerals(315)); //Ok
 
 
 //Function that calculates the century
