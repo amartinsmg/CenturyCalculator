@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-		<title>Century Calculator</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="Style.css"/>
-		<script src="Script.js" defer></script>
-</head>
-<body>
-	<main class="content">
-		<h1 class="page-title">Century Calculator</h1>
-		<form id="input-form">
-			<div>
-				<label for="year-input">Year:</label>
-				<input class="values-inputs" type="number" min="1" max="399900" id="year-input"/>
-			</div>
-			<div>
-				<input class="values-inputs" id="calculate-button" type="submit" value="Calculate"/>
-			</div>
-		</form>
-		<div class="result">
-			<label>Century: </label>
-			<div id="text-output"></div>
-		</div>
-	</main>
-</body>
+  <head>
+    <title>Century Calculator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Style.css" />
+    <script src="Script.js" defer></script>
+  </head>
+  <body>
+    <main class="content">
+      <h1 class="page-title">Century Calculator</h1>
+      <form id="input-form">
+        <div>
+          <label for="year-input">Year:</label>
+          <input
+            class="values-inputs"
+            type="number"
+            min="1"
+            max="399900"
+            id="year-input"
+          />
+        </div>
+        <div>
+          <input
+            class="values-inputs"
+            id="calculate-button"
+            type="submit"
+            value="Calculate"
+          />
+        </div>
+      </form>
+      <div class="result">
+        <label>Century: </label>
+        <div id="text-output"></div>
+      </div>
+    </main>
+  </body>
 </html>
