@@ -49,6 +49,9 @@ function romanNumerals(num) {
 
 function ordinalNum(num) {
   let unit = num % 10;
+  if (isNaN(num) || num <= 0) {
+    return null;
+  }
   if (num % 100 === 11 || num % 100 === 12 || num % 100 === 13) {
     return num + "th";
   }
