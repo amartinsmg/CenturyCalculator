@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
   <head>
     <title>Century Calculator</title>
     <meta charset="UTF-8" />
@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="Style.css" />
     <script src="Script.js" defer></script>
   </head>
-  <body>
-    <main class="content">
+  <body lang="en">
+    <header>
       <h1 class="page-title">Century Calculator</h1>
+      <button id="lang-button">Pt</button>
+    </header>
+    <main>
       <form id="input-form">
         <div>
-          <label for="year-input">Year:</label>
+          <label id="year-label" for="year-input">Year:</label>
           <input
             class="values-inputs"
             type="number"
@@ -31,7 +34,7 @@
         </div>
       </form>
       <div class="result">
-        <label>Century: </label>
+        <label id="result-label">Century: </label>
         <div id="text-output"></div>
       </div>
     </main>
