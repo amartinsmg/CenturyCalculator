@@ -1,4 +1,4 @@
-const BODY = document.querySelector("body"),
+const BODY = document.body,
   LANGBUTTON = document.querySelector("#lang-button"),
   FORM = document.querySelector("#input-form"),
   YEARINPUT = document.querySelector("#year-input"),
@@ -16,7 +16,7 @@ function romanNumerals(num) {
   if (isNaN(num) || !Number.isInteger(num) || num <= 0 || num >= 4000) {
     return null;
   }
-  const INTERMEDIARY = [
+  const INTERMEDIARY = new Map([
     [1000, "M"],
     [900, "CM"],
     [500, "D"],
@@ -30,15 +30,15 @@ function romanNumerals(num) {
     [5, "V"],
     [4, "IV"],
     [1, "I"],
-  ];
+  ]);
 
   let romanNum = "";
 
   while (num > 0) {
-    for (let i of INTERMEDIARY) {
-      if (num >= i[0]) {
-        romanNum += i[1];
-        num -= i[0];
+    for (let i of INTERMEDIARY.keys()) {
+      if (num >= i) {
+        romanNum += INTERMEDIARY.get(i);
+        num -= i;
         break;
       }
     }
@@ -48,14 +48,15 @@ function romanNumerals(num) {
 }
 
 function ordinalNum(num) {
-  let unit = num % 10;
-  if (isNaN(num) || num <= 0) {
+  const MODULE10 = num % 10,
+    MODULE100 = num % 100;
+  if (isNaN(num) || !Number.isInteger(num) || num <= 0) {
     return null;
   }
-  if (num % 100 === 11 || num % 100 === 12 || num % 100 === 13) {
+  if (MODULE100 === 11 || MODULE100 === 12 || MODULE100 === 13) {
     return num + "th";
   }
-  switch (unit) {
+  switch (MODULE10) {
     case 1:
       return num + "st";
     case 2:
@@ -70,18 +71,16 @@ function ordinalNum(num) {
 //Function that calculates the century
 
 function century(year) {
-  let cent;
-  year = parseInt(year);
-  year % 100 === 0 ? (cent = year / 100) : (cent = Math.floor(year / 100) + 1);
-  return cent;
+  const CENT = year % 100 === 0 ? year / 100 : Math.floor(year / 100) + 1;
+  return CENT;
 }
 
 //Function that calls century() and write the result in document
 
 function calculate() {
-  let input = YEARINPUT.value;
-  TEXTOUTPUT.innerHTML =
-    BODY.getAttribute("lang") === "pt"
+  let input = parseInt(YEARINPUT.value);
+  TEXTOUTPUT.textContent =
+    BODY.lang === "pt"
       ? romanNumerals(century(input))
       : ordinalNum(century(input));
 }
@@ -89,7 +88,7 @@ function calculate() {
 //Call calculate() when Enter key is pressed or the calculate btton is clicked
 
 YEARINPUT.onkeydown = (e) => {
-  if (e.keyCode == 13) {
+  if (e.keyCode === 13) {
     calculate();
   }
 };
@@ -100,27 +99,27 @@ CALCULATEBUTTON.onclick = () => {
 };
 
 LANGBUTTON.onclick = function () {
-  const PAGETITLE = document.querySelector(".page-title"),
+  const PAGETITLE = document.querySelector("#page-title"),
     YEARLABEL = document.querySelector("#year-label"),
     RESULTLABEL = document.querySelector("#result-label");
-  if (this.innerHTML === "Pt") {
-    BODY.setAttribute("lang", "pt");
-    this.innerHTML = "En";
-    PAGETITLE.innerHTML = "Calculadora de Século";
-    YEARLABEL.innerHTML = "Ano:";
+  if (BODY.lang === "en") {
+    BODY.lang = "pt";
+    this.textContent = "En";
+    PAGETITLE.textContent = "Calculadora de Século";
+    YEARLABEL.textContent = "Ano:";
     CALCULATEBUTTON.value = "Calcular";
-    RESULTLABEL.innerHTML = "Século:";
-    if (TEXTOUTPUT.innerHTML !== "") {
+    RESULTLABEL.textContent = "Século:";
+    if (TEXTOUTPUT.textContent !== "") {
       calculate();
     }
-  } else if (this.innerHTML === "En") {
-    BODY.setAttribute("lang", "en");
-    this.innerHTML = "Pt";
-    PAGETITLE.innerHTML = "Century Calculator";
-    YEARLABEL.innerHTML = "Year:";
+  } else if (BODY.lang === "pt") {
+    BODY.lang = "en";
+    this.textContent = "Pt";
+    PAGETITLE.textContent = "Century Calculator";
+    YEARLABEL.textContent = "Year:";
     CALCULATEBUTTON.value = "Calculate";
-    RESULTLABEL.innerHTML = "Century:";
-    if (TEXTOUTPUT.innerHTML !== "") {
+    RESULTLABEL.textContent = "Century:";
+    if (TEXTOUTPUT.textContent !== "") {
       calculate();
     }
   }

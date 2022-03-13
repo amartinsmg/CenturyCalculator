@@ -9,13 +9,13 @@
   </head>
   <body lang="en">
     <header>
-      <h1 class="page-title">Century Calculator</h1>
+      <h1 id="page-title">Century Calculator</h1>
       <button id="lang-button">Pt</button>
     </header>
     <main>
       <form id="input-form">
         <div>
-          <label id="year-label" for="year-input">Year:</label>
+          <label id="year-label" for="year-input" class="strong-class">Year:</label>
           <input
             class="values-inputs"
             type="number"
@@ -33,9 +33,9 @@
           />
         </div>
       </form>
-      <div class="result">
-        <label id="result-label">Century: </label>
-        <div id="text-output"></div>
+      <div id="result">
+        <label id="result-label" class="strong-class">Century: </label>
+        <span id="text-output"></span>
       </div>
     </main>
   </body>
