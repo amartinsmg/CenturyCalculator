@@ -1,8 +1,5 @@
-const BODY = document.body,
-  LANGBUTTON = document.querySelector("#lang-button"),
-  FORM = document.querySelector("#input-form"),
+const FORM = document.querySelector("#input-form"),
   YEARINPUT = document.querySelector("#year-input"),
-  CALCULATEBUTTON = document.querySelector("#calculate-button"),
   TEXTOUTPUT = document.querySelector("#text-output");
 
 //Initial value of YEARINPUT as the current year
@@ -13,9 +10,6 @@ YEARINPUT.value = Today.getFullYear().toString();
 //Function the transforms the number into Roman numerals
 
 function romanNumerals(num) {
-  if (isNaN(num) || !Number.isInteger(num) || num <= 0 || num >= 4000) {
-    return null;
-  }
   const INTERMEDIARY = new Map([
     [1000, "M"],
     [900, "CM"],
@@ -31,8 +25,11 @@ function romanNumerals(num) {
     [4, "IV"],
     [1, "I"],
   ]);
-
   let romanNum = "";
+  
+  if (isNaN(num) || num % 1 !== 0 || num <= 0 || num >= 4000) {
+    return null;
+  }
 
   while (num > 0) {
     for (let i of INTERMEDIARY.keys()) {
@@ -46,6 +43,8 @@ function romanNumerals(num) {
 
   return romanNum;
 }
+
+//Function the transforms the number into ordinal number
 
 function ordinalNum(num) {
   const MODULE10 = num % 10,
@@ -80,7 +79,7 @@ function century(year) {
 function calculate() {
   let input = parseInt(YEARINPUT.value);
   TEXTOUTPUT.textContent =
-    BODY.lang === "pt"
+    document.documentElement.lang === "pt"
       ? romanNumerals(century(input))
       : ordinalNum(century(input));
 }
@@ -89,38 +88,11 @@ function calculate() {
 
 YEARINPUT.onkeydown = (e) => {
   if (e.keyCode === 13) {
-    calculate();
+    FORM.onsubmit(e);
   }
 };
 
-CALCULATEBUTTON.onclick = () => {
+FORM.onsubmit = (e) => {
   calculate();
-  return false;
-};
-
-LANGBUTTON.onclick = function () {
-  const PAGETITLE = document.querySelector("#page-title"),
-    YEARLABEL = document.querySelector("#year-label"),
-    RESULTLABEL = document.querySelector("#result-label");
-  if (BODY.lang === "en") {
-    BODY.lang = "pt";
-    this.textContent = "En";
-    PAGETITLE.textContent = "Calculadora de Século";
-    YEARLABEL.textContent = "Ano:";
-    CALCULATEBUTTON.value = "Calcular";
-    RESULTLABEL.textContent = "Século:";
-    if (TEXTOUTPUT.textContent !== "") {
-      calculate();
-    }
-  } else if (BODY.lang === "pt") {
-    BODY.lang = "en";
-    this.textContent = "Pt";
-    PAGETITLE.textContent = "Century Calculator";
-    YEARLABEL.textContent = "Year:";
-    CALCULATEBUTTON.value = "Calculate";
-    RESULTLABEL.textContent = "Century:";
-    if (TEXTOUTPUT.textContent !== "") {
-      calculate();
-    }
-  }
+  e.preventDefault()
 };
