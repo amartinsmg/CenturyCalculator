@@ -7,7 +7,7 @@ const FORM = document.querySelector("#input-form"),
 const Today = new Date();
 YEARINPUT.value = Today.getFullYear().toString();
 
-//Function the transforms the number into Roman numerals
+//Function that transforms the number into Roman numerals
 
 function romanNumerals(num) {
   const INTERMEDIARY = new Map([
@@ -26,9 +26,9 @@ function romanNumerals(num) {
     [1, "I"],
   ]);
   let romanNum = "";
-  
+
   if (isNaN(num) || num % 1 !== 0 || num <= 0 || num >= 4000) {
-    return null;
+    throw "Por favor, insira um número maior que 0 e menor que 4000";
   }
 
   while (num > 0) {
@@ -44,13 +44,13 @@ function romanNumerals(num) {
   return romanNum;
 }
 
-//Function the transforms the number into ordinal number
+//Function that transforms the number into ordinal number
 
 function ordinalNum(num) {
   const MODULE10 = num % 10,
     MODULE100 = num % 100;
-  if (isNaN(num) || !Number.isInteger(num) || num <= 0) {
-    return null;
+  if (isNaN(num) || num % 1 !== 0 || num <= 0) {
+    throw "Please, enter a number greater than 0.";
   }
   if (MODULE100 === 11 || MODULE100 === 12 || MODULE100 === 13) {
     return num + "th";
@@ -77,14 +77,19 @@ function century(year) {
 //Function that calls century() and write the result in document
 
 function calculate() {
-  let input = parseInt(YEARINPUT.value);
-  TEXTOUTPUT.textContent =
-    document.documentElement.lang === "pt"
-      ? romanNumerals(century(input))
-      : ordinalNum(century(input));
+  try {
+    const YEAR = parseInt(YEARINPUT.value);
+    TEXTOUTPUT.textContent =
+      document.documentElement.lang === "pt"
+        ? romanNumerals(century(YEAR))
+        : ordinalNum(century(YEAR));
+  } catch (err) {
+    alert(err);
+    TEXTOUTPUT.textContent = null;
+  }
 }
 
-//Call calculate() when Enter key is pressed or the calculate btton is clicked
+//Call calculate() when Enter key is pressed or the calculate button is clicked
 
 YEARINPUT.onkeydown = (e) => {
   if (e.keyCode === 13) {
@@ -94,5 +99,5 @@ YEARINPUT.onkeydown = (e) => {
 
 FORM.onsubmit = (e) => {
   calculate();
-  e.preventDefault()
+  e.preventDefault();
 };
