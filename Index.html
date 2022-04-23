@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="Style.css">
   </head>
   <body>
-    <div class="container my-4">
+    <div class="container py-4">
       <div class="d-flex flex-row justify-content-around">
         <div>
           <h1 id="page-title">Century Calculator</h1>
@@ -24,10 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="container py-4">
+    <div class="container text-center py-5">
       <div>
-          <form id="input-form" class="d-flex flex-column align-items-center gap-3 was-validated">
-            <div class="form-group d-flex flex-column align-items-center">
+          <form id="input-form" class="was-validated">
+            <div class="form-group">
               <label id="year-label" class="form-label fw-bold" for="year-input">Year:</label>
               <input
                 class="form-input"
@@ -39,7 +39,7 @@
               />
               <div class="invalid-feedback">Please, enter a integer number grater than zero.</div>
             </div>
-            <div class="form-group">
+            <div class="form-group pt-3">
               <button
                 class="btn btn-primary"
                 id="calculate-button"
@@ -47,9 +47,9 @@
               >Calculate</button>
           </form>
       </div>
-      <div id="result" class="d-flex flex-inline-row justify-content-center pt-4">
-        <div class="p-2 fw-bold">Century: </div>
-        <div class="p-2" id="century-output"></div>
+      <div id="result" class="row pt-5">
+        <div class="col-sm-6 p-2 text-sm-end fw-bold">Century: </div>
+        <div class="col-sm-6 p-2 text-sm-start" id="century-output"></div>
       </div>
     </div>
     <!-- Bootstrap JavaScript Libraries -->

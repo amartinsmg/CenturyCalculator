@@ -1,18 +1,18 @@
 //Constatns that store elements that will be often read or changed
 
-const FORM: HTMLFormElement = document.querySelector("#input-form"),
-  YEARINPUT: HTMLInputElement = document.querySelector("#year-input"),
-  CENTURYOUTPUT: HTMLSpanElement = document.querySelector("#century-output");
+const Form: HTMLFormElement = document.querySelector("#input-form"),
+  YearInput: HTMLInputElement = document.querySelector("#year-input"),
+  CenturyOutputDiv: HTMLSpanElement = document.querySelector("#century-output");
 
-//Set initial value of YEARINPUT as the current year
+//Set initial value of YearInput as the current year
 
 const Today = new Date();
-YEARINPUT.defaultValue = Today.getFullYear().toString();
+YearInput.defaultValue = Today.getFullYear().toString();
 
 //Convert the input number to Roman numerals
 
 function romanNumerals(num: number) {
-  const INTERMEDIARY = new Map([
+  const RomanNumeralsMap = new Map([
     [1000, "M"],
     [900, "CM"],
     [500, "D"],
@@ -34,9 +34,9 @@ function romanNumerals(num: number) {
   }
 
   while (num > 0) {
-    for (let key of INTERMEDIARY.keys()) {
+    for (let key of RomanNumeralsMap.keys()) {
       if (num >= key) {
-        romanNum += INTERMEDIARY.get(key);
+        romanNum += RomanNumeralsMap.get(key);
         num -= key;
         break;
       }
@@ -80,25 +80,25 @@ function century(year: number) {
 
 function main() {
   try {
-    const YEAR = parseInt(YEARINPUT.value);
-    CENTURYOUTPUT.textContent =
+    const YEAR = parseInt(YearInput.value);
+    CenturyOutputDiv.textContent =
       document.documentElement.lang === "pt"
         ? romanNumerals(century(YEAR))
         : ordinalNum(century(YEAR));
   } catch {
-    CENTURYOUTPUT.textContent = null;
+    CenturyOutputDiv.textContent = null;
   }
 }
 
 //Call main function when Enter key is pressed or the calculate button is clicked
 
-YEARINPUT.onkeydown = (e) => {
+YearInput.onkeydown = (e) => {
   if (e.keyCode === 13) {
     return void 0;
   }
 };
 
-FORM.onsubmit = (e) => {
+Form.onsubmit = (e) => {
   main();
   e.preventDefault();
 };
