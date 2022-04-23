@@ -1,45 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>Century Calculator</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Style.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="Style.css">
   </head>
   <body>
-    <header>
-      <h1 id="page-title">Century Calculator</h1>
-      <a href="Pt-Br/index.html">
-        <button id="lang-button">Pt</button>
-      </a>
-    </header>
-    <main>
-      <form id="input-form">
+    <div class="container my-4">
+      <div class="d-flex flex-row justify-content-around">
         <div>
-          <label id="year-label" for="year-input" class="strong-class">Year:</label>
-          <input
-            class="values-inputs"
-            type="number"
-            min="1"
-            max="1000000"
-            placeholder="Enter a number"
-            id="year-input"
-          />
+          <h1 id="page-title">Century Calculator</h1>
         </div>
         <div>
-          <input
-            class="values-inputs"
-            id="calculate-button"
-            type="submit"
-            value="Calculate"
-          />
+          <a href="Pt-Br/index.html">
+            <img src="./Images/Brazil-flag.png" alt="Português" title="Português" id="lang-changer">
+          </a>
         </div>
-      </form>
-      <div id="result">
-        <label id="result-label" class="strong-class">Century: </label>
-        <span id="text-output"></span>
       </div>
-    </main>
-    <script src="Script.js"></script>
+    </div>
+    <div class="container py-4">
+      <div>
+          <form id="input-form" class="d-flex flex-column align-items-center gap-3 was-validated">
+            <div class="form-group d-flex flex-column align-items-center">
+              <label id="year-label" class="form-label fw-bold" for="year-input">Year:</label>
+              <input
+                class="form-input"
+                type="number"
+                min="1"
+                placeholder="Enter a number"
+                id="year-input"
+                required
+              />
+              <div class="invalid-feedback">Please, enter a integer number grater than zero.</div>
+            </div>
+            <div class="form-group">
+              <button
+                class="btn btn-primary"
+                id="calculate-button"
+                type="submit"
+              >Calculate</button>
+          </form>
+      </div>
+      <div id="result" class="d-flex flex-inline-row justify-content-center pt-4">
+        <div class="p-2 fw-bold">Century: </div>
+        <div class="p-2" id="century-output"></div>
+      </div>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <script src="Script.js"></script>  
   </body>
 </html>

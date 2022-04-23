@@ -1,45 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
   <head>
     <title>Calculadora de Século</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Style.css" />
-    <script src="../Script.js" defer></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="../Style.css">
   </head>
   <body>
-    <header>
-      <h1 id="page-title">Calculadora de Século</h1>
-      <a href="../index.html">
-        <button id="lang-button">En</button>
-      </a>
-    </header>
-    <main>
-      <form id="input-form">
+    <div class="container my-4">
+      <div class="d-flex flex-row justify-content-around">
         <div>
-          <label id="year-label" for="year-input" class="strong-class">Ano:</label>
-          <input
-            class="values-inputs"
-            type="number"
-            min="1"
-            max="399900"
-            placeholder="Insira um número"
-            id="year-input"
-          />
+          <h1 id="page-title">Calculadora de Século</h1>
         </div>
         <div>
-          <input
-            class="values-inputs"
-            id="calculate-button"
-            type="submit"
-            value="Calculate"
-          />
+          <a href="../index.html">
+            <img src="../Images/USA-flag.png" alt="English" title="English" id="lang-changer">
+          </a>
         </div>
-      </form>
-      <div id="result">
-        <label id="result-label" class="strong-class">Século: </label>
-        <span id="text-output"></span>
       </div>
-    </main>
+    </div>
+    <div class="container py-4">
+      <div>
+          <form id="input-form" class="d-flex flex-column align-items-center gap-3 was-validated">
+            <div class="form-group d-flex flex-column align-items-center">
+              <label id="year-label" class="form-label fw-bold" for="year-input">Ano:</label>
+              <input
+                class="form-input w-5"
+                type="number"
+                min="1"
+                max="399900"
+                id="year-input"
+                required
+              />
+              <div class="invalid-feedback">Por favor, insira um número maior que zero e menor ou igual a 399900.</div>
+            </div>
+            <div class="form-group">
+              <button
+                class="btn btn-primary"
+                id="calculate-button"
+                type="submit"
+              >Calcular</button>
+          </form>
+      </div>
+      <div id="result" class="d-flex flex-inline-row justify-content-center pt-4">
+        <div class="p-2 fw-bold">Século: </div>
+        <div class="p-2" id="century-output"></div>
+      </div>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  
+    <script src="../Script.js"></script>  
   </body>
 </html>

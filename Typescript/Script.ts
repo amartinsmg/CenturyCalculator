@@ -2,7 +2,7 @@
 
 const FORM: HTMLFormElement = document.querySelector("#input-form"),
   YEARINPUT: HTMLInputElement = document.querySelector("#year-input"),
-  TEXTOUTPUT: HTMLSpanElement = document.querySelector("#text-output");
+  CENTURYOUTPUT: HTMLSpanElement = document.querySelector("#century-output");
 
 //Set initial value of YEARINPUT as the current year
 
@@ -30,7 +30,7 @@ function romanNumerals(num: number) {
   let romanNum = "";
 
   if (isNaN(num) || num % 1 !== 0 || num <= 0 || num >= 4000) {
-    throw "Insira um número inteiro maior que 0 e menor que 4000";
+    throw "Enter an integer greater than 0 and less than 4000";
   }
 
   while (num > 0) {
@@ -52,7 +52,7 @@ function ordinalNum(num: number) {
   const MODULE10 = num % 10,
     MODULE100 = num % 100;
   if (isNaN(num) || num % 1 !== 0 || num <= 0) {
-    throw "Enter a integer number greater than 0.";
+    throw "Enter a integer number greater than 0";
   }
   if (MODULE100 === 11 || MODULE100 === 12 || MODULE100 === 13) {
     return num + "th";
@@ -81,13 +81,12 @@ function century(year: number) {
 function main() {
   try {
     const YEAR = parseInt(YEARINPUT.value);
-    TEXTOUTPUT.textContent =
+    CENTURYOUTPUT.textContent =
       document.documentElement.lang === "pt"
         ? romanNumerals(century(YEAR))
         : ordinalNum(century(YEAR));
-  } catch (err) {
-    alert(err);
-    TEXTOUTPUT.textContent = null;
+  } catch {
+    CENTURYOUTPUT.textContent = null;
   }
 }
 

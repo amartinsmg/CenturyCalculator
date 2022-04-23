@@ -1,3 +1,4 @@
 # Century Calculator
 
-Este é um projeto para construir uma calculadora que pega o ano e nos dá o século em algarismos romanos.
+This is a project to build a calculator that takes the year as input and outputs the century.
+It has a Portuguese version that outputs the year in Roman numerals and an English version that outputs the year in ordinal format.
