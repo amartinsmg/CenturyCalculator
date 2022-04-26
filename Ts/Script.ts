@@ -2,11 +2,11 @@
 
 const Form: HTMLFormElement = document.querySelector("#input-form"),
   YearInput: HTMLInputElement = document.querySelector("#year-input"),
-  CenturyOutputDiv: HTMLSpanElement = document.querySelector("#century-output");
+  CenturyOutputDiv: HTMLDivElement = document.querySelector("#century-output");
 
 //Set initial value of YearInput as the current year
 
-const Today: Date = new Date();
+const Today = new Date();
 YearInput.defaultValue = Today.getFullYear().toString();
 
 //Convert the input number to Roman numerals
@@ -51,8 +51,8 @@ function romanNumerals(num: number): string {
 
 function ordinalNum(num: number): string {
   "use strict";
-  const MODULE10: number = num % 10,
-    MODULE100: number = num % 100;
+  const MODULE10 = num % 10,
+    MODULE100 = num % 100;
   if (isNaN(num) || num % 1 !== 0 || num <= 0) {
     throw "Enter a integer number greater than 0";
   }
@@ -75,7 +75,7 @@ function ordinalNum(num: number): string {
 
 function century(year: number): number {
   "use strict";
-  const CENTURY: number = year % 100 === 0 ? year / 100 : Math.floor(year / 100) + 1;
+  const CENTURY = year % 100 === 0 ? year / 100 : Math.floor(year / 100) + 1;
   return CENTURY;
 }
 
@@ -84,8 +84,8 @@ function century(year: number): number {
 function main(): void {
   "use strict";
   try {
-    const YEAR: number = parseInt(YearInput.value),
-      CENTURY: number = century(YEAR)
+    const YEAR = parseInt(YearInput.value),
+      CENTURY = century(YEAR)
     CenturyOutputDiv.textContent =
       document.documentElement.lang === "en"
         ? ordinalNum(CENTURY)
@@ -97,13 +97,13 @@ function main(): void {
 
 //Call main function when Enter key is pressed or the calculate button is clicked
 
-YearInput.onkeydown = (e: KeyboardEvent): void => {
+YearInput.onkeydown = (e) => {
   if (e.keyCode === 13) {
     return void 0;
   }
 };
 
-Form.onsubmit = (e): void => {
+Form.onsubmit = (e) => {
   main();
   e.preventDefault();
 };
