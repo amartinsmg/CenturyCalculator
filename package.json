@@ -2,9 +2,9 @@
   "scripts": {
     "build": "npm run build:types && npm run build:js && build:css && build:html",
     "build:types": "tsc --noEmit",
-    "build:js": "babel Ts --out-dir Dist --extensions \".ts,.tsx\"",
-    "build:css": "cp Ts/Style.css Dist/",
-    "build:html": "cp Ts/Index.html Ts/Pt-Br/Index.html Dist/"
+    "build:js": "babel Src --out-dir Dist --extensions \".ts,.tsx\"",
+    "build:css": "cp Src/Style.css Dist/",
+    "build:html": "cp Src/Index.html Src/Pt-Br/Index.html Dist/"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
