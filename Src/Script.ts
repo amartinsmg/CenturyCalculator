@@ -111,4 +111,4 @@ class CenturyCalculator {
   }
 }
 
-window.onload = CenturyCalculator.main;
+CenturyCalculator.main();
