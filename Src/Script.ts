@@ -1,50 +1,59 @@
-class CenturyCalculator {
+void (function () { 
 
-  public static main(): void {
+  function main(): void {
 
     //Constatns that store elements that will be often read or changed
 
     const Form: HTMLFormElement = document.querySelector("#input-form"),
       YearInput: HTMLInputElement = document.querySelector("#year-input"),
-      CenturyOutputDiv: HTMLDivElement = document.querySelector("#century-output");
-
+      CenturyOutputDiv: HTMLDivElement = document.querySelector("#century-output"),
+      SubmitBnt: HTMLButtonElement = document.querySelector("#submit-btn"),
+      Today = new Date();
+    
     //Set initial value of YearInput as the current year
 
-    const Today = new Date();
     YearInput.defaultValue = Today.getFullYear().toString();
 
-    //Call century function and write the result in document
+    //Call century function and write the result in document when form is submitted
 
-    function calculate(): void {
+    Form.addEventListener("submit", (e) => {
+      e.preventDefault();
       try {
         const YEAR = parseInt(YearInput.value),
-          CENTURY = CenturyCalculator.century(YEAR);
-        CenturyOutputDiv.textContent =
-          document.documentElement.lang === "en"
-            ? CenturyCalculator.ordinalNum(CENTURY)
-            : CenturyCalculator.romanNumerals(CENTURY);
+          CENTURY = century(YEAR),
+          FORMATEDCENTURY =
+            document.documentElement.lang === "en"
+              ? ordinalNum(CENTURY)
+              : romanNumerals(CENTURY);
+        CenturyOutputDiv.textContent = FORMATEDCENTURY;
       } catch {
         CenturyOutputDiv.textContent = null;
       }
-    }
+    });
 
-    //Call main function when Enter key is pressed or the calculate button is clicked
+    /* If the Enter key is pressed, submit the form or, if the form is invalid, show the invalid feedback,
+    if another key is pressed, remove the invalid feedback, if any*/
 
-    YearInput.onkeydown = (e) => {
+    YearInput.addEventListener("keydown", (e) => {
       if (e.keyCode === 13) {
+        Form.classList.add("was-validated");
         return void 0;
+      }else{
+        Form.classList.contains("was-validated") ? Form.classList.remove("was-validated") : void 0;
       }
-    };
+    });
 
-    Form.onsubmit = (e) => {
-      calculate();
-      e.preventDefault();
-    };
+    //If the form is invalid, show invalid feedback
+
+    SubmitBnt.addEventListener("click", () => {
+      Form.classList.add("was-validated");
+    })
+
   }
 
   //Convert the input number to Roman numerals
 
-  private static romanNumerals(num: number): string {
+  function romanNumerals(num: number): string {
     const RomanNumeralsMap: Map<number, string> = new Map([
       [1000, "M"],
       [900, "CM"],
@@ -77,11 +86,11 @@ class CenturyCalculator {
     }
 
     return romanNum;
-  };
+  }
 
   //Convert the input number into ordinal number
 
-  private static ordinalNum(num: number): string {
+  function ordinalNum(num: number): string {
     const MODULE10 = num % 10,
       MODULE100 = num % 100;
     if (isNaN(num) || num % 1 !== 0 || num <= 0) {
@@ -100,15 +109,15 @@ class CenturyCalculator {
       default:
         return `${num}th`;
     }
-  };
+  }
 
   //Calculate the century
 
-  private static century(year: number): number {
-    const CENTURY =
-      year % 100 === 0 ? year / 100 : Math.floor(year / 100) + 1;
+  function century(year: number): number {
+    const CENTURY = year % 100 === 0 ? year / 100 : Math.floor(year / 100) + 1;
     return CENTURY;
   }
-}
 
-CenturyCalculator.main();
+  window.addEventListener("load", main);
+
+})();
