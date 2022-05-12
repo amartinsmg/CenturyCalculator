@@ -3,7 +3,7 @@
     "build": "npm run build:check && npm run build:prod",
     "build:check": "tsc",
     "build:prod": "webpack",
-    "dev": "webpack serve --hot"
+    "dev": "webpack serve"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
