@@ -1,5 +1,8 @@
-const path = require("path");
-const CopyPlugin = require("copy-webpack-plugin");
+const path = require("path"),
+  CopyPlugin = require("copy-webpack-plugin"),
+  MiniCssExtractPlugin = require("mini-css-extract-plugin"),
+  CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
+  TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -18,22 +21,32 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.(j|t)s$/,
         use: "babel-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: [".ts"],
+    extensions: [".ts", ".js", ".css"],
+  },
+  optimization: {
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
   plugins: [
     new CopyPlugin({
       patterns: [
         { from: "**/*.html", context: "src/" },
-        { from: "**/*.css", context: "src/" },
         { from: "assets/**/*" },
       ],
+    }),
+    new MiniCssExtractPlugin({
+      filename: "bundle.css",
     }),
   ],
 };

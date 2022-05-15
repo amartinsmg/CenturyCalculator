@@ -1,3 +1,7 @@
+require("bootstrap");
+require("bootstrap/dist/css/bootstrap.min.css");
+require("./style.css");
+
 //Convert the input number to Roman numerals
 
 function romanNumerals(num: number): string {
@@ -38,15 +42,15 @@ function romanNumerals(num: number): string {
 //Convert the input number into ordinal number
 
 function ordinalNum(num: number): string {
-  const MODULE10 = num % 10,
-    MODULE100 = num % 100;
+  const MODULUS10 = num % 10,
+    MODULUS100 = num % 100;
   if (isNaN(num) || num % 1 !== 0 || num <= 0) {
     throw "Enter a integer number greater than 0";
   }
-  if (MODULE100 === 11 || MODULE100 === 12 || MODULE100 === 13) {
+  if (MODULUS100 === 11 || MODULUS100 === 12 || MODULUS100 === 13) {
     return `${num}th`;
   }
-  switch (MODULE10) {
+  switch (MODULUS10) {
     case 1:
       return `${num}st`;
     case 2:
@@ -104,9 +108,7 @@ function main(): void {
       Form.classList.add("was-validated");
       return void 0;
     } else {
-      Form.classList.contains("was-validated")
-        ? Form.classList.remove("was-validated")
-        : void 0;
+      Form.classList.remove("was-validated");
     }
   });
 

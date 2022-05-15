@@ -1,51 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Century Calculator</title>
-    <link rel="stylesheet" href="bundle.css">
+    <title>Calculadora del Siglo</title>
+    <link rel="stylesheet" href="../bundle.css">
   </head>
   <body>
     <header class="container py-4 d-flex flex-row justify-content-around">
       <div>
-        <h1 id="page-title">Century Calculator</h1>
+        <h1 id="page-title">Calculadora del Siglo</h1>
       </div>
       <div>
-        <a href="es/index.html">
-          <img src="assets/spain-flag.png" alt="Español" title="Español" id="lang-changer">
+        <a href="../index.html">
+          <img src="../assets/usa-flag.png" alt="English" title="English" id="lang-changer">
         </a>
       </div>
     </header>
     <main class="container text-center py-5">
       <form id="input-form">
         <div class="form-group">
-          <label id="year-label" class="form-label fw-bold" for="year-input">Year:</label>
+          <label id="year-label" class="form-label fw-bold" for="year-input">Año:</label>
           <input
             class="form-input"
             type="number"
             min="1"
-            placeholder="Enter a number"
+            max="399900"
             id="year-input"
             name="year"
             required
           />
-          <div class="invalid-feedback">Please, enter a integer number grater than zero.</div>
+          <div class="invalid-feedback">Por favor, introduzca un número mayor que cero y menor que 399900.</div>
         </div>
         <div class="form-group pt-3">
           <button
             class="btn btn-primary"
             id="submit-btn"
             type="submit"
-          >Calculate</button>
+          >Calcular</button>
         </div>
       </form>
       <output id="output" class="row pt-5">
-        <div class="col-sm-6 p-2 text-sm-end fw-bold">Century: </div>
+        <div class="col-sm-6 p-2 text-sm-end fw-bold">Siglo: </div>
         <div class="col-sm-6 p-2 text-sm-start" id="century-output"></div>
       </output>
     </main>
-    <script src="bundle.js"></script>  
+    <script src="../bundle.js"></script>
   </body>
 </html>
