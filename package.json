@@ -1,4 +1,11 @@
 {
+  "name": "centurycalculator",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amartinsmg/CenturyCalculator.git"
+  },
+  "main": "./src/index.ts",
   "scripts": {
     "build": "npm run build:check && npm run build:prod",
     "build:check": "tsc",
@@ -16,10 +23,15 @@
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
     "mini-css-extract-plugin": "^2.6.0",
-    "style-loader": "^3.3.1",
     "typescript": "^4.6.3",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
-  }
+  },
+  "author": "amartinsmg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amartinsmg/CenturyCalculator/issues"
+  },
+  "homepage": "https://github.com/amartinsmg/CenturyCalculator#readme"
 }

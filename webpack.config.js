@@ -1,7 +1,7 @@
 const path = require("path"),
   CopyPlugin = require("copy-webpack-plugin"),
-  MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
+  MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
@@ -28,7 +28,6 @@ module.exports = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
-        exclude: /node_modules/,
       },
     ],
   },
