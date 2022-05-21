@@ -22,9 +22,8 @@ function romanNumerals(num: number): string {
   ]);
   let romanNum: string = "";
 
-  if (isNaN(num) || num % 1 !== 0 || num <= 0 || num >= 4000) {
+  if (isNaN(num) || num % 1 !== 0 || num <= 0 || num >= 4000)
     throw "Enter an integer greater than 0 and less than 4000";
-  }
 
   while (num > 0) {
     for (let [key, value] of RomanNumeralsMap) {
@@ -44,12 +43,8 @@ function romanNumerals(num: number): string {
 function ordinalNum(num: number): string {
   const MODULUS10 = num % 10,
     MODULUS100 = num % 100;
-  if (isNaN(num) || num % 1 !== 0 || num <= 0) {
-    throw "Enter a integer number greater than 0";
-  }
-  if (MODULUS100 === 11 || MODULUS100 === 12 || MODULUS100 === 13) {
-    return `${num}th`;
-  }
+  if (isNaN(num) || num % 1 !== 0 || num <= 0) throw "Enter a integer number greater than 0";
+  if ([11, 12, 13].includes(MODULUS100)) return `${num}th`;
   switch (MODULUS10) {
     case 1:
       return `${num}st`;
@@ -104,12 +99,8 @@ function main(): void {
     if another key is pressed, remove the invalid feedback, if any*/
 
   YearInput.addEventListener("keydown", (e) => {
-    if (e.keyCode === 13) {
-      Form.classList.add("was-validated");
-      return void 0;
-    } else {
-      Form.classList.remove("was-validated");
-    }
+    if (e.keyCode === 13) Form.classList.add("was-validated");
+    else Form.classList.remove("was-validated");
   });
 
   //If the form is invalid, show invalid feedback
