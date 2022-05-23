@@ -41,11 +41,11 @@ function romanNumerals(num: number): string {
 //Convert the input number into ordinal number
 
 function ordinalNum(num: number): string {
-  const MODULUS10 = num % 10,
-    MODULUS100 = num % 100;
+  const MODULUS_10 = num % 10,
+    MODULUS_100 = num % 100;
   if (isNaN(num) || num % 1 !== 0 || num <= 0) throw "Enter a integer number greater than 0";
-  if ([11, 12, 13].includes(MODULUS100)) return `${num}th`;
-  switch (MODULUS10) {
+  if ([11, 12, 13].includes(MODULUS_100)) return `${num}th`;
+  switch (MODULUS_10) {
     case 1:
       return `${num}st`;
     case 2:
@@ -85,11 +85,11 @@ function main(): void {
     try {
       const YEAR = parseInt(YearInput.value),
         CENTURY = century(YEAR),
-        FORMATEDCENTURY =
+        FORMATED_CENTURY =
           document.documentElement.lang === "en"
             ? ordinalNum(CENTURY)
             : romanNumerals(CENTURY);
-      CenturyOutputDiv.textContent = FORMATEDCENTURY;
+      CenturyOutputDiv.textContent = FORMATED_CENTURY;
     } catch {
       CenturyOutputDiv.textContent = null;
     }
