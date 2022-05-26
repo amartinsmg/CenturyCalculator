@@ -40,7 +40,6 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "**/*.html", context: "src/" },
         { from: "assets/**/*" },
       ],
     }),

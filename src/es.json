@@ -1,0 +1,18 @@
+{
+  "language": "es",
+  "title": "Calculadora del Siglo",
+  "cssSrc": "../bundle.css",
+  "scriptSrc": "../bundle.js",
+  "navLink": "../index.html",
+  "navImage": {
+    "src": "../assets/usa-flag.png",
+    "alt": "English",
+    "title": "English"
+  },
+  "yearLabel": "Año",
+  "yearInputMax": 399900,
+  "yearInputPlaceholder": "Enter a number",
+  "invalidFeedback": "Por favor, introduzca un número mayor que cero y menor que 399900.",
+  "submitBtn": "Calcular",
+  "centuryHeading": "Siglo:"
+}

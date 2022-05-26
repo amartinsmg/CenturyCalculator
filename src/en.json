@@ -1,0 +1,18 @@
+{
+  "language": "en",
+  "title": "Century Calculator",
+  "cssSrc": "bundle.css",
+  "scriptSrc": "bundle.js",
+  "navLink": "es/index.html",
+  "navImage": {
+    "src": "assets/spain-flag.png",
+    "alt": "Español",
+    "title": "Español"
+  },
+  "yearLabel": "Year",
+  "yearInputMax": "",
+  "yearInputPlaceholder": "Enter a number",
+  "invalidFeedback": "Please, enter a integer number grater than zero.",
+  "submitBtn": "Calculate",
+  "centuryHeading": "Century:"
+}
