@@ -12,7 +12,7 @@
     "build:prod": "node render && webpack",
     "dev": "concurrently -k \"npm:dev:*\"",
     "dev:webpack": "webpack serve",
-    "dev:render": "node render watch"
+    "dev:render": "node render --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",

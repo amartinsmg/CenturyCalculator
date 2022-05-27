@@ -12,7 +12,7 @@ function ejs2html(templateFile, outDir, optionsFile) {
     const template = ejs.compile(data),
       html = template(options);
     fs.writeFile(outDir + "index.html", html, (err) => {
-      if (err) throw err
+      if (err) throw err;
       else console.log(outDir + "index.html has been rendered");
     });
   });
@@ -24,13 +24,13 @@ const EnJson = __dirname + "/src/en.json",
   renderEnglish = () => ejs2html(Template, __dirname + "/dist/", EnJson),
   renderSpanish = () => ejs2html(Template, __dirname + "/dist/es/", EsJson);
 
-if (process.argv.includes("watch")) {
+if (process.argv.includes("--watch")) {
   fs.watchFile(EnJson, () => renderEnglish());
   fs.watchFile(EsJson, () => renderSpanish());
   fs.watchFile(Template, () => {
     renderEnglish();
     renderSpanish();
-  })
+  });
 } else {
   renderEnglish();
   renderSpanish();
