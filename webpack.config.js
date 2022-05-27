@@ -1,7 +1,9 @@
-const path = require("path"),
-  CopyPlugin = require("copy-webpack-plugin"),
+const CopyPlugin = require("copy-webpack-plugin"),
   CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
+  fs = require("fs"),
+  HtmlWebpackPlugin = require("html-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
+  path = require("path"),
   TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
@@ -39,12 +41,20 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [
-        { from: "assets/**/*" },
-      ],
+      patterns: [{ from: "assets/**/*" }],
     }),
     new MiniCssExtractPlugin({
       filename: "bundle.css",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "./src/index.ejs",
+      templateParameters: JSON.parse(fs.readFileSync("./src/en.json", "utf-8")),
+    }),
+    new HtmlWebpackPlugin({
+      filename: "es/index.html",
+      template: "./src/index.ejs",
+      templateParameters: JSON.parse(fs.readFileSync("./src/es.json", "utf-8")),
     }),
   ],
 };

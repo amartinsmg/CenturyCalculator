@@ -11,7 +11,7 @@
   },
   "yearLabel": "Año",
   "yearInputMax": 399900,
-  "yearInputPlaceholder": "Enter a number",
+  "yearInputPlaceholder": "",
   "invalidFeedback": "Por favor, introduzca un número mayor que cero y menor que 399900.",
   "submitBtn": "Calcular",
   "centuryHeading": "Siglo:"
