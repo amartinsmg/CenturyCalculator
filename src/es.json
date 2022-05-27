@@ -1,8 +1,6 @@
 {
   "language": "es",
   "title": "Calculadora del Siglo",
-  "cssSrc": "../bundle.css",
-  "scriptSrc": "../bundle.js",
   "navLink": "../index.html",
   "navImage": {
     "src": "../assets/usa-flag.png",

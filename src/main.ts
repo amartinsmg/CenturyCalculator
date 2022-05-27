@@ -1,5 +1,5 @@
 import "bootstrap";
-import "./style.css";
+import "./main.css";
 
 //Convert the input number to Roman numerals
 
@@ -21,7 +21,7 @@ function romanNumerals(num: number): string {
   ]);
   let romanNum: string = "";
 
-  if (isNaN(num) || num % 1 !== 0 || num <= 0 || num >= 4000)
+  if (isNaN(num) || num % 1 || num <= 0 || num >= 4000)
     throw "Enter an integer greater than 0 and less than 4000";
 
   while (num > 0) {
@@ -42,7 +42,7 @@ function romanNumerals(num: number): string {
 function ordinalNum(num: number): string {
   const MODULUS_10 = num % 10,
     MODULUS_100 = num % 100;
-  if (isNaN(num) || num % 1 !== 0 || num <= 0) throw "Enter a integer number greater than 0";
+  if (isNaN(num) || num % 1 || num <= 0) throw "Enter a integer number greater than 0";
   if ([11, 12, 13].includes(MODULUS_100)) return `${num}th`;
   switch (MODULUS_10) {
     case 1:

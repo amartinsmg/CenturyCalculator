@@ -1,8 +1,6 @@
 {
   "language": "en",
   "title": "Century Calculator",
-  "cssSrc": "bundle.css",
-  "scriptSrc": "bundle.js",
   "navLink": "es/index.html",
   "navImage": {
     "src": "assets/spain-flag.png",
