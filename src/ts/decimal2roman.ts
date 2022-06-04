@@ -33,3 +33,5 @@ function decimal2roman(num: number): string {
 
   return romanNum;
 }
+
+export default decimal2roman;

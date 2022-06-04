@@ -1,60 +1,5 @@
-import "bootstrap";
-import "./main.css";
-
-//Convert the input number to Roman numerals
-
-function romanNumerals(num: number): string {
-  const RomanNumeralsMap: Map<number, string> = new Map([
-    [1000, "M"],
-    [900, "CM"],
-    [500, "D"],
-    [400, "CD"],
-    [100, "C"],
-    [90, "XC"],
-    [50, "L"],
-    [40, "XL"],
-    [10, "X"],
-    [9, "IX"],
-    [5, "V"],
-    [4, "IV"],
-    [1, "I"],
-  ]);
-  let romanNum: string = "";
-
-  if (isNaN(num) || num % 1 || num <= 0 || num >= 4000)
-    throw "Enter an integer greater than 0 and less than 4000";
-
-  while (num > 0) {
-    for (let [key, value] of RomanNumeralsMap) {
-      if (num >= key) {
-        romanNum += value;
-        num -= key;
-        break;
-      }
-    }
-  }
-
-  return romanNum;
-}
-
-//Convert the input number into ordinal number
-
-function ordinalNum(num: number): string {
-  const MODULUS_10 = num % 10,
-    MODULUS_100 = num % 100;
-  if (isNaN(num) || num % 1 || num <= 0) throw "Enter a integer number greater than 0";
-  if ([11, 12, 13].includes(MODULUS_100)) return `${num}th`;
-  switch (MODULUS_10) {
-    case 1:
-      return `${num}st`;
-    case 2:
-      return `${num}nd`;
-    case 3:
-      return `${num}rd`;
-    default:
-      return `${num}th`;
-  }
-}
+import decimal2ordinal from "./decimal2ordinal";
+import decimal2roman from "./decimal2roman";
 
 //Calculate the century
 
@@ -63,14 +8,18 @@ function century(year: number): number {
   return CENTURY;
 }
 
-function main(): void {
+function main(
+  formSelector: string,
+  yearInputSelector: string,
+  outputSelector: string,
+  submitBtnSelector: string
+): void {
   //Constatns that store elements that will be often read or changed
 
-  const Form: HTMLFormElement = document.querySelector("#input-form"),
-    YearInput: HTMLInputElement = document.querySelector("#year-input"),
-    CenturyOutputDiv: HTMLDivElement =
-      document.querySelector("#century-output"),
-    SubmitBnt: HTMLButtonElement = document.querySelector("#submit-btn"),
+  const Form: HTMLFormElement = document.querySelector(formSelector),
+    YearInput: HTMLInputElement = document.querySelector(yearInputSelector),
+    CenturyOutputDiv = document.querySelector(outputSelector),
+    SubmitBnt: HTMLButtonElement = document.querySelector(submitBtnSelector),
     Today = new Date();
 
   //Set initial value of YearInput as the current year
@@ -86,8 +35,8 @@ function main(): void {
         CENTURY = century(YEAR),
         FORMATED_CENTURY =
           document.documentElement.lang === "en"
-            ? ordinalNum(CENTURY)
-            : romanNumerals(CENTURY);
+            ? decimal2ordinal(CENTURY)
+            : decimal2roman(CENTURY);
       CenturyOutputDiv.textContent = FORMATED_CENTURY;
     } catch {
       CenturyOutputDiv.textContent = null;
@@ -109,4 +58,4 @@ function main(): void {
   });
 }
 
-window.addEventListener("load", main);
+export default main;

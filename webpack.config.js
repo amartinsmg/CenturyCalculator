@@ -53,12 +53,10 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./src/index.ejs",
       templateParameters: JSON.parse(fs.readFileSync("./src/en.json", "utf-8")),
     }),
     new HtmlWebpackPlugin({
       filename: "es/index.html",
-      template: "./src/index.ejs",
       templateParameters: JSON.parse(fs.readFileSync("./src/es.json", "utf-8")),
     }),
   ],
