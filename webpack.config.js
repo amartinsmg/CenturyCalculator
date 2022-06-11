@@ -4,7 +4,7 @@ const CopyPlugin = require("copy-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   path = require("path"),
   TerserPlugin = require("terser-webpack-plugin"),
-  { EnglishPage, SpanishPage } = require("./src/ts/pages.ts");
+  { EnglishPage, SpanishPage, PortuguesePage } = require("./src/ts/pages.ts");
 
 module.exports = {
   entry: "./src/main.ts",
@@ -58,6 +58,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "es/index.html",
       templateParameters: SpanishPage,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "pt/index.html",
+      templateParameters: PortuguesePage,
     }),
   ],
 };

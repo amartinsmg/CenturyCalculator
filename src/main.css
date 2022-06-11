@@ -2,6 +2,7 @@ body {
   font-size: 1.2em;
 }
 
- #lang-changer {
+.lang-btn {
   height: 30px;
+  margin: 0 10px;
 }
