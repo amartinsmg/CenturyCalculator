@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="<%= language %>">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <header class="container py-4 d-flex flex-row justify-content-around">
@@ -12,39 +18,55 @@
         <h1 id="Page-title"><%= title %></h1>
       </div>
       <nav>
-        <a href="<%= navLink %>" >
-          <img src="<%= navImage.src %>" alt="<%= navImage.alt %>" title="<%= navImage.title %>"  id="lang-changer">
+        <a href="<%= navLink %>">
+          <img
+            src="<%= navImage.src %>"
+            alt="<%= navImage.alt %>"
+            title="<%= navImage.title %>"
+            id="lang-changer"
+          />
         </a>
       </nav>
     </header>
     <main class="container text-center py-5">
       <form id="input-form">
         <div class="form-group">
-          <label id="year-label" class="form-label fw-bold" for="year-input"><%= yearLabel %> </label>
+          <label id="year-label" class="form-label fw-bold" for="year-input"
+            ><%= yearLabel %>
+          </label>
           <input
             class="form-input"
             type="number"
             min="1"
             max="<%= yearInputMax %>"
-            placeholder="<%= yearInputPlaceholder %>" 
+            placeholder="<%= yearInputPlaceholder %>"
             id="year-input"
             name="year"
             required
           />
-          <div class="invalid-feedback"><%= invalidFeedback %> </div>
+          <div class="invalid-feedback"><%= invalidFeedback %></div>
         </div>
         <div class="form-group pt-3">
-          <button
-            class="btn btn-primary"
-            id="submit-btn"
-            type="submit"
-          ><%= submitBtn %> </button>
+          <button class="btn btn-primary" id="submit-btn" type="submit">
+            <%= submitBtn %>
+          </button>
         </div>
       </form>
       <output id="output" class="row pt-5">
-        <h5 class="col-sm-6 p-2 text-sm-end"> <%= centuryHeading %> </h5>
+        <h5 class="col-sm-6 p-2 text-sm-end"><%= centuryHeading %></h5>
         <div class="col-sm-6 p-2 text-sm-start" id="century-output"></div>
       </output>
     </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

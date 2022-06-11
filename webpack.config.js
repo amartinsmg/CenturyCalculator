@@ -1,10 +1,10 @@
 const CopyPlugin = require("copy-webpack-plugin"),
   CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
-  fs = require("fs"),
   HtmlWebpackPlugin = require("html-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   path = require("path"),
-  TerserPlugin = require("terser-webpack-plugin");
+  TerserPlugin = require("terser-webpack-plugin"),
+  { EnglishPage, SpanishPage } = require("./src/ts/pages.ts");
 
 module.exports = {
   entry: "./src/main.ts",
@@ -53,11 +53,11 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      templateParameters: JSON.parse(fs.readFileSync("./src/en.json", "utf-8")),
+      templateParameters: EnglishPage,
     }),
     new HtmlWebpackPlugin({
       filename: "es/index.html",
-      templateParameters: JSON.parse(fs.readFileSync("./src/es.json", "utf-8")),
+      templateParameters: SpanishPage,
     }),
   ],
 };

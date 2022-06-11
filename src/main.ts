@@ -1,4 +1,3 @@
-import "bootstrap";
 import "./main.css";
 import centuryCalculator from "./ts/centurycalculator";
 
