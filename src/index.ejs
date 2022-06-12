@@ -18,22 +18,16 @@
         <h1 id="Page-title"><%= title %></h1>
       </div>
       <nav class="d-flex flex-row">
-        <div><a href="<%= navLinks[0] %>">
+        <% for (let navImage of navImages) { %> 
+        <div><a href="<%= navImage.link %>">
           <img
-            src="<%= navImages[0].src %>"
-            alt="<%= navImages[0].alt %>"
-            title="<%= navImages[0].title %>"
+            src="<%= navImage.src %>"
+            alt="<%= navImage.alt %>"
+            title="<%= navImage.title %>"
             class="lang-btn"
           />
         </a></div>
-        <div><a href="<%= navLinks[1] %>">
-          <img
-            src="<%= navImages[1].src %>"
-            alt="<%= navImages[1].alt %>"
-            title="<%= navImages[1].title %>"
-            class="lang-btn"
-          />
-        </a></div>
+        <% } %> 
       </nav>
     </header>
     <main class="container text-center py-5">

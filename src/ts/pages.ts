@@ -1,14 +1,15 @@
 const EnglishPage = {
     language: "en",
     title: "Century Calculator",
-    navLinks: ["es/index.html", "pt/index.html"],
     navImages: [
       {
+        link: "es/index.html",
         src: "assets/spain-flag.png",
         alt: "Español",
         title: "Español",
       },
       {
+        link: "pt/index.html",
         src: "assets/brazil-flag.png",
         alt: "Português",
         title: "Português",
@@ -24,14 +25,15 @@ const EnglishPage = {
   SpanishPage = {
     language: "es",
     title: "Calculadora del Siglo",
-    navLinks: ["../index.html", "../pt/index.html"],
     navImages: [
       {
+        link: "../index.html",
         src: "../assets/usa-flag.png",
         alt: "English",
         title: "English",
       },
       {
+        link: "../pt/index.html",
         src: "../assets/brazil-flag.png",
         alt: "Português",
         title: "Português",
@@ -48,14 +50,15 @@ const EnglishPage = {
   PortuguesePage = {
     language: "pt",
     title: "Calculadora de Século",
-    navLinks: ["../index.html", "../es/index.html"],
     navImages: [
       {
+        link: "../index.html",
         src: "../assets/usa-flag.png",
         alt: "English",
         title: "English",
       },
       {
+        link: "../es/index.html",
         src: "../assets/spain-flag.png",
         alt: "Español",
         title: "Español",
