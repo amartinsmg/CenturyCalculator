@@ -4,7 +4,7 @@ const CopyPlugin = require("copy-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   path = require("path"),
   TerserPlugin = require("terser-webpack-plugin"),
-  { EnglishPage, SpanishPage, PortuguesePage } = require("./src/ts/pages.ts");
+  { EnglishPage, SpanishPage, PortuguesePage } = require("./src/js/pages");
 
 module.exports = {
   entry: "./src/main.ts",
