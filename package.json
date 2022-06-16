@@ -1,6 +1,6 @@
 {
   "name": "centurycalculator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amartinsmg/CenturyCalculator.git"
@@ -28,7 +28,7 @@
     "webpack-dev-server": "^4.9.0"
   },
   "author": "amartinsmg",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/amartinsmg/CenturyCalculator/issues"
   },
