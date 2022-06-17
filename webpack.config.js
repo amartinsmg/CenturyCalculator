@@ -9,7 +9,7 @@ const CopyPlugin = require("copy-webpack-plugin"),
 module.exports = {
   entry: "./src/main.ts",
   output: {
-    filename: "bundle.js",
+    filename: "assets/bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
   mode: "production",
@@ -17,7 +17,7 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, "dist"),
     },
-    port: 8000,
+    port: 8080,
     open: true,
   },
   module: {
@@ -49,7 +49,7 @@ module.exports = {
       patterns: [{ from: "assets/**/*" }],
     }),
     new MiniCssExtractPlugin({
-      filename: "bundle.css",
+      filename: "assets/bundle.css",
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
