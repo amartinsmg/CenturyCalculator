@@ -5,6 +5,7 @@
     "type": "git",
     "url": "git+https://github.com/amartinsmg/CenturyCalculator.git"
   },
+  "homepage": "CenturyCalculator",
   "main": "./src/index.ts",
   "scripts": {
     "build": "webpack",
@@ -31,6 +32,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/amartinsmg/CenturyCalculator/issues"
-  },
-  "homepage": "https://github.com/amartinsmg/CenturyCalculator#readme"
+  }
 }
