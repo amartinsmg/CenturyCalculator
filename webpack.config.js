@@ -1,10 +1,10 @@
-const CopyPlugin = require("copy-webpack-plugin"),
-  CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
   HtmlWebpackPlugin = require("html-webpack-plugin"),
+  { htmlWebpackPluginTemplateCustomizer } = require("template-ejs-loader"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   path = require("path"),
   TerserPlugin = require("terser-webpack-plugin"),
-  { EnglishPage, SpanishPage, PortuguesePage } = require("./src/js/pages");
+  { EnglishPage, SpanishPage, PortuguesePage } = require("./src/js/pages.js");
 
 module.exports = {
   entry: "./src/main.ts",
@@ -33,8 +33,16 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        test: /\.ejs$/,
+        use: ["html-loader", "template-ejs-loader"],
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        type: "asset/resource",
       },
     ],
   },
@@ -45,23 +53,29 @@ module.exports = {
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
   plugins: [
-    new CopyPlugin({
-      patterns: [{ from: "assets/**/*" }],
-    }),
     new MiniCssExtractPlugin({
       filename: "assets/bundle.css",
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      templateParameters: EnglishPage,
+      template: htmlWebpackPluginTemplateCustomizer({
+        templatePath: "./src/index.ejs",
+        templateEjsLoaderOption: { data: EnglishPage },
+      }),
     }),
     new HtmlWebpackPlugin({
       filename: "es/index.html",
-      templateParameters: SpanishPage,
+      template: htmlWebpackPluginTemplateCustomizer({
+        templatePath: "./src/index.ejs",
+        templateEjsLoaderOption: { data: SpanishPage },
+      }),
     }),
     new HtmlWebpackPlugin({
       filename: "pt/index.html",
-      templateParameters: PortuguesePage,
+      template: htmlWebpackPluginTemplateCustomizer({
+        templatePath: "./src/index.ejs",
+        templateEjsLoaderOption: { data: PortuguesePage },
+      }),
     }),
   ],
 };

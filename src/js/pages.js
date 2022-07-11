@@ -26,13 +26,13 @@ const EnglishPage = new CenturyCPage(
     "Century Calculator",
     {
       link: "es/index.html",
-      src: "assets/spain-flag.png",
+      src: "../assets/spain-flag.png",
       alt: "Español",
       title: "Español",
     },
     {
       link: "pt/index.html",
-      src: "assets/brazil-flag.png",
+      src: "../assets/brazil-flag.png",
       alt: "Português",
       title: "Português",
     },
