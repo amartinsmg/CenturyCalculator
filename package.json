@@ -5,7 +5,7 @@
     "type": "git",
     "url": "git+https://github.com/amartinsmg/CenturyCalculator.git"
   },
-  "homepage": "/CenturyCalculator",
+  "homepage": "https://amartinsmg.github.io/CenturyCalculator",
   "main": "./src/main.ts",
   "scripts": {
     "build": "webpack",
