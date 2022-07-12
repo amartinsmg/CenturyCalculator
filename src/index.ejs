@@ -32,11 +32,11 @@
     <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <header class="py-4 d-flex flex-row justify-content-around">
+    <header class="py-4 d-md-flex justify-content-around">
       <div>
-        <h1 id="Page-title"><%= title %></h1>
+        <h1 class="text-center" id="Page-title"><%= title %></h1>
       </div>
-      <nav class="d-flex flex-row">
+      <nav class="d-flex flex-row justify-content-center">
         <% for (let navImage of navImages) { %>
         <div>
           <a href="<%= (language !== "en" ? "../" : "") + navImage.link %>">
@@ -51,7 +51,7 @@
         <% } %>
       </nav>
     </header>
-    <main class="container text-center py-5">
+    <main class="container text-center py-4">
       <form id="input-form">
         <div class="form-group">
           <label id="year-label" class="form-label fw-bold" for="year-input"
@@ -62,7 +62,6 @@
             type="number"
             min="1"
             max="<%= yearInputMax %>"
-            placeholder="<%= yearInputPlaceholder %>"
             id="year-input"
             name="year"
             required
@@ -75,12 +74,12 @@
           </button>
         </div>
       </form>
-      <output id="output" class="row pt-5">
-        <h5 class="col-sm-6 p-2 text-sm-end"><%= centuryHeading %></h5>
-        <div class="col-sm-6 p-2 text-sm-start" id="century-output"></div>
+      <output id="output" class="row py-4">
+        <h5 class="col-sm-6 p-1 text-sm-end"><%= centuryHeading %></h5>
+        <div class="col-sm-6 p-1 text-sm-start" id="century-output"></div>
       </output>
     </main>
-    <footer class="text-center position-fixed bottom-0 w-100">
+    <footer class="text-center w-100">
       <p><small>Made by <a href="https://amartinsmg.github.io">amartinsmg</a>.
         <a href="https://www.flaticon.com/free-icons/hourglass" title="hourglass icons"
         >Hourglass icons created by Freepik - Flaticon</a></small></p>

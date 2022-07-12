@@ -7,3 +7,14 @@ html {
   margin: 0 0.5rem;
 }
 
+input {
+  max-width: 6rem;
+}
+
+@media screen and (min-height: 550px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+}
+

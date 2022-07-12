@@ -3,7 +3,6 @@ function CenturyCPage(
   title,
   yearLabel,
   yearInputMax,
-  yearInputPlaceholder,
   invalidFeedback,
   submitBtn,
   centuryHeading
@@ -12,7 +11,6 @@ function CenturyCPage(
   this.title = title;
   this.yearLabel = yearLabel;
   this.yearInputMax = yearInputMax;
-  this.yearInputPlaceholder = yearInputPlaceholder;
   this.invalidFeedback = invalidFeedback;
   this.submitBtn = submitBtn;
   this.centuryHeading = centuryHeading;
@@ -23,7 +21,6 @@ const EnglishPage = new CenturyCPage(
     "Century Calculator",
     "Year",
     null,
-    "Enter a number",
     "Please, enter a integer number grater than zero.",
     "Calculate",
     "Century:"
@@ -33,7 +30,6 @@ const EnglishPage = new CenturyCPage(
     "Calculadora del Siglo",
     "Año",
     399900,
-    "",
     "Por favor, introduzca un número mayor que cero y menor que 399900.",
     "Calcular",
     "Siglo:"
@@ -43,7 +39,6 @@ const EnglishPage = new CenturyCPage(
     "Calculadora de Século",
     "Ano",
     399900,
-    "",
     "Por favor, insira um número maior que zero e menor que 399900",
     "Calcular",
     "Século:"
