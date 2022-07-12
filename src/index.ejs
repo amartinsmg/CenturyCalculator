@@ -3,19 +3,19 @@
   <head>
     <% const navImages = [
       {
-        link: "/",
+        link: "./",
         src: "../public/usa-flag.png",
         alt: "English",
         title: "English",
       },
       {
-        link: "/es/",
+        link: "./es/",
         src: "../public/spain-flag.png",
         alt: "Español",
         title: "Español",
       },
       {
-        link: "/pt/",
+        link: "./pt/",
         src: "../public/brazil-flag.png",
         alt: "Português",
         title: "Português",
@@ -38,7 +38,7 @@
       <nav class="d-flex flex-row">
         <% for (let navImage of navImages) { %>
         <div>
-          <a href=<%= navImage.link %>>
+          <a href=<%= (language !== "en" ? "." : "") + navImage.link %>>
             <img
               src=<%= navImage.src %>
               alt=<%= navImage.alt %>
