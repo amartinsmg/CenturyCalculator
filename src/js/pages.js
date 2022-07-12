@@ -1,8 +1,6 @@
 function CenturyCPage(
   language,
   title,
-  image1,
-  image2,
   yearLabel,
   yearInputMax,
   yearInputPlaceholder,
@@ -12,7 +10,6 @@ function CenturyCPage(
 ) {
   this.language = language;
   this.title = title;
-  this.navImages = [image1, image2];
   this.yearLabel = yearLabel;
   this.yearInputMax = yearInputMax;
   this.yearInputPlaceholder = yearInputPlaceholder;
@@ -24,18 +21,6 @@ function CenturyCPage(
 const EnglishPage = new CenturyCPage(
     "en",
     "Century Calculator",
-    {
-      link: "es/index.html",
-      src: "../assets/spain-flag.png",
-      alt: "Español",
-      title: "Español",
-    },
-    {
-      link: "pt/index.html",
-      src: "../assets/brazil-flag.png",
-      alt: "Português",
-      title: "Português",
-    },
     "Year",
     null,
     "Enter a number",
@@ -46,18 +31,6 @@ const EnglishPage = new CenturyCPage(
   SpanishPage = new CenturyCPage(
     "es",
     "Calculadora del Siglo",
-    {
-      link: "../index.html",
-      src: "../assets/usa-flag.png",
-      alt: "English",
-      title: "English",
-    },
-    {
-      link: "../pt/index.html",
-      src: "../assets/brazil-flag.png",
-      alt: "Português",
-      title: "Português",
-    },
     "Año",
     399900,
     "",
@@ -68,18 +41,6 @@ const EnglishPage = new CenturyCPage(
   PortuguesePage = new CenturyCPage(
     "pt",
     "Calculadora de Século",
-    {
-      link: "../index.html",
-      src: "../assets/usa-flag.png",
-      alt: "English",
-      title: "English",
-    },
-    {
-      link: "../es/index.html",
-      src: "../assets/spain-flag.png",
-      alt: "Español",
-      title: "Español",
-    },
     "Ano",
     399900,
     "",

@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="<%= language %>">
   <head>
+    <% const navImages = [
+      {
+        link: "/",
+        src: "../public/usa-flag.png",
+        alt: "English",
+        title: "English",
+      },
+      {
+        link: "/es/",
+        src: "../public/spain-flag.png",
+        alt: "Español",
+        title: "Español",
+      },
+      {
+        link: "/pt/",
+        src: "../public/brazil-flag.png",
+        alt: "Português",
+        title: "Português",
+      }
+    ]; %> 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
