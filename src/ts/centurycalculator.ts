@@ -16,10 +16,10 @@ function main(
 ): void {
   //Constatns that store elements that will be often read or changed
 
-  const Form: HTMLFormElement = document.querySelector(formSelector),
-    YearInput: HTMLInputElement = document.querySelector(yearInputSelector),
-    CenturyOutputDiv = document.querySelector(outputSelector),
-    SubmitBnt: HTMLButtonElement = document.querySelector(submitBtnSelector),
+  const Form = document.querySelector(formSelector) as HTMLFormElement,
+    YearInput = document.querySelector(yearInputSelector) as HTMLInputElement,
+    CenturyOutputDiv = document.querySelector(outputSelector) as HTMLElement,
+    SubmitBnt = document.querySelector(submitBtnSelector) as HTMLButtonElement,
     Today = new Date();
 
   //Set initial value of YearInput as the current year
