@@ -21,7 +21,7 @@ const EnglishPage = new CenturyCPage(
     "Century Calculator",
     "Year",
     null,
-    "Please, enter a integer number grater than zero.",
+    "Please, enter a whole number greater than zero.",
     "Calculate",
     "Century:"
   ),

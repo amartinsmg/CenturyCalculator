@@ -1,7 +1,7 @@
 import decimal2ordinal from "./decimal2ordinal";
 import decimal2roman from "./decimal2roman";
 
-//Calculate the century
+// This function calculates which century a year is in
 
 function century(year: number): number {
   const CENTURY = year % 100 === 0 ? year / 100 : Math.floor(year / 100) + 1;
@@ -14,7 +14,7 @@ function main(
   outputSelector: string,
   submitBtnSelector: string
 ): void {
-  //Constatns that store elements that will be often read or changed
+  // Constants that store elements that are to be read or changed
 
   const Form = document.querySelector(formSelector) as HTMLFormElement,
     YearInput = document.querySelector(yearInputSelector) as HTMLInputElement,
@@ -22,11 +22,11 @@ function main(
     SubmitBnt = document.querySelector(submitBtnSelector) as HTMLButtonElement,
     Today = new Date();
 
-  //Set initial value of YearInput as the current year
+  // This statement sets the initial value of YearInput as the current year
 
   YearInput.defaultValue = Today.getFullYear().toString();
 
-  //Call century function and write the result in document when form is submitted
+  // This function calls century function and writes the result in the document when the form is submitted
 
   Form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -43,15 +43,13 @@ function main(
     }
   });
 
-  /* If the Enter key is pressed, submit the form or, if the form is invalid, show the invalid feedback,
-    if another key is pressed, remove the invalid feedback, if any*/
+  // These functions display invalid feedback when the form's data is not valid,
+  // and the first one removes it when a key is pressed
 
   YearInput.addEventListener("keydown", (e) => {
-    if (e.keyCode === 13) Form.classList.add("was-validated");
+    if (e.key === "Enter") Form.classList.add("was-validated");
     else Form.classList.remove("was-validated");
   });
-
-  //If the form is invalid, show invalid feedback
 
   SubmitBnt.addEventListener("click", () => {
     Form.classList.add("was-validated");

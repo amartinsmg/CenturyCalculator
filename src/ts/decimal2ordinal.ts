@@ -1,4 +1,4 @@
-//Convert the input number into ordinal number
+// This function converts the input number into ordinal number
 
 function decimal2ordinal(num: number): string {
   const MODULUS_10 = num % 10,

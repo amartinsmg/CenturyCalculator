@@ -1,4 +1,4 @@
-//Convert the input number to Roman numerals
+// This function converts the input number to roman numerals
 
 function decimal2roman(num: number): string {
   const RomanNumeralsMap: Map<number, string> = new Map([
