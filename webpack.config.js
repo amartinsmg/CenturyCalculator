@@ -11,6 +11,7 @@ module.exports = {
   output: {
     filename: "assets/bundle.js",
     path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "assets/[hash][ext]",
   },
   mode: "production",
   devServer: {
@@ -47,7 +48,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".ts", ".js", ".css"],
+    extensions: [".ts", ".js", ".ejs", ".css"],
   },
   optimization: {
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
