@@ -24,25 +24,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.ts$/i,
         use: ["babel-loader", "ts-loader"],
         exclude: /node_modules/,
       },
       {
-        test: /\.js$/,
+        test: /\.js$/i,
         use: "babel-loader",
         exclude: /node_modules/,
       },
       {
-        test: /\.ejs$/,
+        test: /\.ejs$/i,
         use: ["html-loader", "template-ejs-loader"],
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
     ],
