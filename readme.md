@@ -3,9 +3,9 @@
 The Century Calculator is a personal project for a web calculator that takes the year from user input and displays the century.
 
 ## Features
-Supports three languages: English, Spanish and Portuguese.
-The English version outputs the year in ordinal format.
-The Spanish and Portuguese versions display the century in Roman numerals.
+- Supports three languages: English, Spanish and Portuguese.
+- The English version outputs the year in ordinal format.
+- The Spanish and Portuguese versions display the century in Roman numerals.
 
 ## How to run the project
 To build and run the project, follow these steps:
