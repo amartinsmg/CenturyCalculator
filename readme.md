@@ -11,8 +11,8 @@ The Century Calculator is a personal project for a web calculator that takes the
 To build and run the project, follow these steps:
 
 1. Clone this repository.
-2. Install the dependencies by running `npm install`.
-3. Build the project by running `npm run build`.
+2. Install the dependencies by running `yarn install`.
+3. Build the project by running `yarn build`.
 
 After the build process is complete, you can open the index.html file located in the 'dist' directory in your web browser to use the calculator.
 
