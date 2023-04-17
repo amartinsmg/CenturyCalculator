@@ -1,3 +1,7 @@
+/**
+  Configuration file for Webpack bundling tool.
+*/
+
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
   HtmlWebpackPlugin = require("html-webpack-plugin"),
   { htmlWebpackPluginTemplateCustomizer } = require("template-ejs-loader"),
@@ -7,13 +11,39 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
   { EnglishPage, SpanishPage, PortuguesePage } = require("./src/js/pages.js");
 
 module.exports = {
+  /**
+    The entry point for the application.
+  */
+
   entry: "./src/main.ts",
+
+  /**
+    The output configuration for the bundled files.
+    @property filename - The name of the output file.
+    @property path - The path to the output directory.
+    @property assetModuleFilename - The asset module filename pattern.
+  */
+
   output: {
     filename: "assets/bundle.js",
     path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "assets/[hash][ext]",
   },
+
+  /**
+    The mode configuration for Webpack.
+  */
+
   mode: "production",
+
+  /**
+    The configuration options for the development server.
+    @property static - The static file serving options.
+    @property static.directory - The directory to serve static files from.
+    @property port - The port number to listen on.
+    @property open - Whether to open the default browser on startup.
+  */
+
   devServer: {
     static: {
       directory: path.resolve(__dirname, "dist"),
@@ -21,6 +51,11 @@ module.exports = {
     port: 8080,
     open: true,
   },
+
+  /**
+    The module configuration for Webpack.
+    @property rules - The array of rules for processing files.
+  */
   module: {
     rules: [
       {
@@ -47,12 +82,29 @@ module.exports = {
       },
     ],
   },
+
+  /**
+    The resolve configuration for Webpack.
+    @property extensions - The list of file extensions to resolve.
+  */
+
   resolve: {
     extensions: [".ts", ".js", ".ejs", ".css"],
   },
+
+  /**
+    The optimization configuration for Webpack.
+    @property minimizer - The array of plugins used for code optimization.
+  */
+
   optimization: {
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
+
+  /**
+    The plugins configuration for Webpack.
+  */
+
   plugins: [
     new MiniCssExtractPlugin({
       filename: "assets/bundle.css",
