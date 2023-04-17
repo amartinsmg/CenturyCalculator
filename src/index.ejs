@@ -1,3 +1,23 @@
+<!-- 
+  This is an embedded JavaScript code for a Century Calculator project. It generates an HTML page with a form that
+  takes a year input and calculates the century in which that year belongs.
+
+  The code uses the following properties from a JavaScript object passed as parameter:
+    @property language: a string that determines the language of the HTML page
+    @property title: a string that sets the title of the HTML page
+    @property yearLabel: a string that sets the label for the year input field
+    @property yearInputMax: a number that sets the maximum value for the year input field
+    @property invalidFeedback: a string that sets the invalid feedback message for the year input field
+    @property submitBtn: a string that sets the label for the submit button
+    @property centuryHeading: a string that sets the heading for the century output field
+    @property navImages: an array of objects to create language selection buttons in the header of the HTML page. Each object in navImages has the following properties:
+      @property link: a string that sets the relative path to the language-specific page
+      @property src: a string that sets the URL of the image file for the language button
+      @property alt: a string that sets the alternative text for the image file
+      @property title: a string that sets the title attribute for the image file
+  The code uses the Bootstrap 5 framework for styling and form validation. It loads two JavaScript files from the Bootstrap CDN to enable dropdown menus and form validation.
+ -->
+
 <!DOCTYPE html>
 <html lang="<%= language %>">
 
