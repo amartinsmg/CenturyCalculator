@@ -3,13 +3,11 @@ import decimal2roman from "./decimal2roman";
 
 /**
   This function takes a year as input and returns the century the year belongs to.
-  If the input is not a positive integer number, an error is thrown.
-  The century is calculated by dividing the year by 100 and rounding up to the nearest integer,
-  except when the year is a multiple of 100, in which case the century is the year divided by 100.
-  @param year - The year to calculate the century for.
-  @return - The century the year belongs to.
-  @throws - Throws an error if the input is not a positive integer number.
+    @param year - The year to calculate the century for.
+    @return - The century the year belongs to.
+    @throws - Throws an error if the input is not a positive integer number.
  */
+
 function century(year: number): number {
   if (isNaN(year) || year % 1 || year <= 0)
     throw "Enter a integer number greater than 0";
@@ -19,10 +17,10 @@ function century(year: number): number {
 
 /**
   Creates a new Century Calculator object based on the specified HTML element selectors.
-  @param formSelector - The CSS selector of the form element.
-  @param yearInputSelector - The CSS selector of the year input element.
-  @param outputSelector - The CSS selector of the output element.
-  @param submitBtnSelector - The CSS selector of the submit button element.
+    @param formSelector - The CSS selector of the form element.
+    @param yearInputSelector - The CSS selector of the year input element.
+    @param outputSelector - The CSS selector of the output element.
+    @param submitBtnSelector - The CSS selector of the submit button element.
 */
 
 function main(
@@ -31,8 +29,6 @@ function main(
   outputSelector: string,
   submitBtnSelector: string
 ): void {
-  // Constants that store elements of the application that may be read or modified.
-
   const Form = document.querySelector(formSelector) as HTMLFormElement,
     YearInput = document.querySelector(yearInputSelector) as HTMLInputElement,
     CenturyOutputDiv = document.querySelector(outputSelector) as HTMLElement,
@@ -44,12 +40,10 @@ function main(
   YearInput.defaultValue = Today.getFullYear().toString();
 
   /**
-    This statement calls the century function to calculate the century based on the year
-    entered by the user when the form is submitted. It then displays the result in the
-    document, showing the century in ordinal format if the language of the page is set to
-    'en' (english) and in Roman numerals otherwise. In case of an error, the function
-    clears the content of the div that presents the result to prevent displaying
-    incorrect information.
+    This statement calls the century function to calculate the century based on the year entered by the user when the form is submitted.
+    It then displays the result in the document, showing the century in ordinal format if the language of the page is set to 'en' (english)
+    and in Roman numerals otherwise. In case of an error, the function clears the content of the div that presents the result to prevent
+    displaying incorrect information.
    */
 
   Form.addEventListener("submit", (e) => {
@@ -68,12 +62,9 @@ function main(
   });
 
   /**
-    The first statement adds or removes the "was-validated" class from the Form element when the
-    Enter key is pressed or released on the YearInput element, respectively.
-    The second statement adds the "was-validated" class to the Form element when the SubmitBtn
-    element is clicked.
-    This behavior is part of the Bootstrap framework used in the project to provide visual
-    feedback to the user when validating form inputs.
+    The first statement adds or removes the "was-validated" class from the Form element when the Enter key is pressed on the YearInput element,
+    respectively. The second statement adds the "was-validated" class to the Form element when the SubmitBtn element is clicked.
+    This behavior is part of the Bootstrap framework used in the project to provide visual feedback to the user when validating form inputs.
    */
 
   YearInput.addEventListener("keydown", (e) => {
