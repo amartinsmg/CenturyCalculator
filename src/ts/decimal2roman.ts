@@ -1,11 +1,8 @@
 /**
   This function uses a map that relates decimal numbers to their respective Roman numerals.
-  The function iterates through the map and subtracts the largest decimal number possible
-  from the input number and appends the corresponding Roman numeral to the result string.
-  The process is repeated until the input number is zero.
-  @param num - The decimal number to be converted to Roman numeral.
-  @return - A string representing the Roman numeral.
-  @throws - An error message if the input is not a positive integer or greater than 4000.
+    @param num - The decimal number to be converted to Roman numeral.
+    @return - A string representing the Roman numeral.
+    @throws - An error message if the input is not a positive integer or greater than 4000.
  */
 
 function decimal2roman(num: number): string {
