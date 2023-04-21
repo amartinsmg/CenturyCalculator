@@ -1,8 +1,8 @@
 /**
   Converts a decimal number to its corresponding ordinal representation.
-  @param num - The decimal number to be converted.
-  @returns - The ordinal representation of the input number as a string.
-  @throws - If the input is not a positive integer.
+    @param num - The decimal number to be converted.
+    @returns - The ordinal representation of the input number as a string.
+    @throws - If the input is not a positive integer.
  */
 
 function decimal2ordinal(num: number): string {
