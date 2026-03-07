@@ -8,7 +8,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   path = require("path"),
   TerserPlugin = require("terser-webpack-plugin"),
-  { EnglishPage, SpanishPage, PortuguesePage } = require("./src/js/pages.js");
+  { englishPage, spanishPage, portuguesePage } = require("./src/js/pages.js");
 
 module.exports = {
   /**
@@ -113,21 +113,21 @@ module.exports = {
       filename: "index.html",
       template: htmlWebpackPluginTemplateCustomizer({
         templatePath: "./src/index.ejs",
-        templateEjsLoaderOption: { data: EnglishPage },
+        templateEjsLoaderOption: { data: englishPage },
       }),
     }),
     new HtmlWebpackPlugin({
       filename: "es/index.html",
       template: htmlWebpackPluginTemplateCustomizer({
         templatePath: "./src/index.ejs",
-        templateEjsLoaderOption: { data: SpanishPage },
+        templateEjsLoaderOption: { data: spanishPage },
       }),
     }),
     new HtmlWebpackPlugin({
       filename: "pt/index.html",
       template: htmlWebpackPluginTemplateCustomizer({
         templatePath: "./src/index.ejs",
-        templateEjsLoaderOption: { data: PortuguesePage },
+        templateEjsLoaderOption: { data: portuguesePage },
       }),
     }),
   ],
