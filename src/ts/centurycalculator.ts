@@ -8,11 +8,10 @@ import decimal2roman from "./decimal2roman";
     @throws - Throws an error if the input is not a positive integer number.
  */
 
-function century(year: number): number {
+function centuryCalculate(year: number): number {
   if (isNaN(year) || year % 1 || year <= 0)
     throw "Enter a integer number greater than 0";
-  const CENTURY = year % 100 === 0 ? year / 100 : Math.floor(year / 100) + 1;
-  return CENTURY;
+  return year % 100 === 0 ? year / 100 : Math.floor(year / 100) + 1;
 }
 
 /**
@@ -29,15 +28,15 @@ function main(
   outputSelector: string,
   submitBtnSelector: string
 ): void {
-  const Form = document.querySelector(formSelector) as HTMLFormElement,
-    YearInput = document.querySelector(yearInputSelector) as HTMLInputElement,
-    CenturyOutputDiv = document.querySelector(outputSelector) as HTMLElement,
-    SubmitBnt = document.querySelector(submitBtnSelector) as HTMLButtonElement,
-    Today = new Date();
+  const form = document.querySelector(formSelector) as HTMLFormElement,
+    yearInput = document.querySelector(yearInputSelector) as HTMLInputElement,
+    centuryOutputDiv = document.querySelector(outputSelector) as HTMLElement,
+    submitBnt = document.querySelector(submitBtnSelector) as HTMLButtonElement,
+    today = new Date();
 
-  // This statement initializes the YearInput with the current year as its default value.
+  // This statement initializes the yearInput with the current year as its default value.
 
-  YearInput.defaultValue = Today.getFullYear().toString();
+  yearInput.defaultValue = today.getFullYear().toString();
 
   /**
     This statement calls the century function to calculate the century based on the year entered by the user when the form is submitted.
@@ -46,34 +45,34 @@ function main(
     displaying incorrect information.
    */
 
-  Form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     try {
-      const YEAR = parseInt(YearInput.value),
-        CENTURY = century(YEAR),
-        FORMATED_CENTURY =
+      const year = parseInt(yearInput.value),
+        century = centuryCalculate(year),
+        formattedCent =
           document.documentElement.lang === "en"
-            ? decimal2ordinal(CENTURY)
-            : decimal2roman(CENTURY);
-      CenturyOutputDiv.textContent = FORMATED_CENTURY;
+            ? decimal2ordinal(century)
+            : decimal2roman(century);
+      centuryOutputDiv.textContent = formattedCent;
     } catch {
-      CenturyOutputDiv.textContent = null;
+      centuryOutputDiv.textContent = null;
     }
   });
 
   /**
-    The first statement adds or removes the "was-validated" class from the Form element when the Enter key is pressed on the YearInput element,
-    respectively. The second statement adds the "was-validated" class to the Form element when the SubmitBtn element is clicked.
+    The first statement adds or removes the "was-validated" class from the form element when the Enter key is pressed on the yearInput element,
+    respectively. The second statement adds the "was-validated" class to the form element when the SubmitBtn element is clicked.
     This behavior is part of the Bootstrap framework used in the project to provide visual feedback to the user when validating form inputs.
    */
 
-  YearInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") Form.classList.add("was-validated");
-    else Form.classList.remove("was-validated");
+  yearInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") form.classList.add("was-validated");
+    else form.classList.remove("was-validated");
   });
 
-  SubmitBnt.addEventListener("click", () => {
-    Form.classList.add("was-validated");
+  submitBnt.addEventListener("click", () => {
+    form.classList.add("was-validated");
   });
 }
 
