@@ -20,7 +20,7 @@ function CenturyCPage(
   yearInputMax,
   invalidFeedback,
   submitBtn,
-  centuryHeading
+  centuryHeading,
 ) {
   this.language = language;
   this.title = title;
@@ -33,38 +33,38 @@ function CenturyCPage(
 
 // An instance of CenturyCPage for the English language.
 
-const EnglishPage = new CenturyCPage(
+const englishPage = new CenturyCPage(
   "en",
   "Century Calculator",
   "Year",
   null,
   "Please, enter a whole number greater than zero.",
   "Calculate",
-  "Century:"
-  );
+  "Century:",
+);
 
 //An instance of CenturyCPage for the Spanish language.
 
-const SpanishPage = new CenturyCPage(
+const spanishPage = new CenturyCPage(
   "es",
   "Calculadora del Siglo",
   "Año",
   399900,
   "Por favor, introduzca un número mayor que cero y menor que 399900.",
   "Calcular",
-  "Siglo:"
-  );
+  "Siglo:",
+);
 
 // An instance of CenturyCPage for the Portuguese language.
 
-const PortuguesePage = new CenturyCPage(
+const portuguesePage = new CenturyCPage(
   "pt",
   "Calculadora de Século",
   "Ano",
   399900,
   "Por favor, insira um número maior que zero e menor que 399900",
   "Calcular",
-  "Século:"
-  );
+  "Século:",
+);
 
-module.exports = { EnglishPage, SpanishPage, PortuguesePage };
+module.exports = { englishPage, spanishPage, portuguesePage };
