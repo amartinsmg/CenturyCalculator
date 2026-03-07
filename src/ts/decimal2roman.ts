@@ -6,7 +6,7 @@
  */
 
 function decimal2roman(num: number): string {
-  const RomanNumeralsMap: Map<number, string> = new Map([
+  const romanNumeralsMap: Map<number, string> = new Map([
     [1000, "M"],
     [900, "CM"],
     [500, "D"],
@@ -27,7 +27,7 @@ function decimal2roman(num: number): string {
     throw "Enter an integer greater than 0 and less than 4000";
 
   while (num > 0) {
-    for (let [key, value] of RomanNumeralsMap) {
+    for (let [key, value] of romanNumeralsMap) {
       if (num >= key) {
         romanNum += value;
         num -= key;
