@@ -1,4 +1,5 @@
 import centuryCalculator from "./centurycalculator.js";
+import "../css/main.css";
 
 /**
   This statement calls the main function in centurycalculator.ts when the web page is fully loaded. It ensures that all necessary resources and
@@ -10,6 +11,6 @@ window.addEventListener("load", () =>
     "#input-form",
     "#year-input",
     "#century-output",
-    "#submit-btn"
-  )
+    "#submit-btn",
+  ),
 );
