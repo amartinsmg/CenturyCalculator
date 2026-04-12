@@ -1,19 +1,21 @@
 <!-- 
-  This code generates an HTML page with a form that takes a year input and calculates the century in which that year belongs.
+  Century Calculator Template (EJS)
+  This template generates a localized HTML page for calculating the century of a given year.
 
-  The code uses the following properties from a JavaScript object passed as parameter:
-    @property language: a string that determines the language of the HTML page
-    @property title: a string that sets the title of the HTML page
-    @property yearLabel: a string that sets the label for the year input field
-    @property yearInputMax: a number that sets the maximum value for the year input field
-    @property invalidFeedback: a string that sets the invalid feedback message for the year input field
-    @property submitBtn: a string that sets the label for the submit button
-    @property centuryHeading: a string that sets the heading for the century output field
-    @property navImages: an array of objects to create language selection buttons in the header of the HTML page. Each object in navImages has the following properties:
-      @property link: a string that sets the relative path to the language-specific page
-      @property src: a string that sets the URL of the image file for the language button
-      @property alt: a string that sets the alternative text for the image file
-      @property title: a string that sets the title attribute for the image file
+  Data Properties (Passed via compiler/renderer):
+    @param {string} language - ISO language code (e.g., 'en', 'pt-br') for the <html> tag.
+    @param {string} title - Page title and main H1 heading.
+    @param {string} yearLabel - Descriptive text for the year input label.
+    @param {number} yearInputMax - Maximum allowed year value for validation.
+    @param {string} invalidFeedback - Error message displayed when the year input is invalid.
+    @param {string} submitBtn - Label text for the calculation button.
+    @param {string} centuryHeading - Text for the result output label (e.g., "Century:").
+    @param {string} output - Current page path; used to determine relative basePath for assets.
+    @param {Array<Object>} navImages - List of language switcher buttons.
+    @param {string} navImages[].link - Destination relative URL for the language.
+    @param {string} navImages[].src - Path to the flag image asset.
+    @param {string} navImages[].alt - Accessibility text for the flag icon.
+    @param {string} navImages[].title - Tooltip text for the language link.
  -->
 
 <!DOCTYPE html>
