@@ -7,15 +7,30 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
   { htmlWebpackPluginTemplateCustomizer } = require("template-ejs-loader"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   path = require("path"),
-  TerserPlugin = require("terser-webpack-plugin"),
-  { englishPage, spanishPage, portuguesePage } = require("./src/js/pages.js");
+  TerserPlugin = require("terser-webpack-plugin");
+
+const navImages = [
+  { link: "", src: "../assets/usa-flag.png", alt: "English", title: "English" },
+  {
+    link: "es/",
+    src: "../assets/spain-flag.png",
+    alt: "Español",
+    title: "Español",
+  },
+  {
+    link: "pt/",
+    src: "../assets/brazil-flag.png",
+    alt: "Português",
+    title: "Português",
+  },
+];
 
 module.exports = {
   /**
     The entry point for the application.
   */
 
-  entry: "./src/main.ts",
+  entry: "./src/js/main.js",
 
   /**
     The output configuration for the bundled files.
@@ -59,16 +74,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/i,
-        use: ["babel-loader", "ts-loader"],
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.js$/i,
-        use: "babel-loader",
-        exclude: /node_modules/,
-      },
-      {
         test: /\.ejs$/i,
         use: ["html-loader", "template-ejs-loader"],
       },
@@ -89,7 +94,7 @@ module.exports = {
   */
 
   resolve: {
-    extensions: [".ts", ".js", ".ejs", ".css"],
+    extensions: [".js", ".ejs", ".css"],
   },
 
   /**
@@ -112,22 +117,60 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: htmlWebpackPluginTemplateCustomizer({
-        templatePath: "./src/index.ejs",
-        templateEjsLoaderOption: { data: englishPage },
+        templatePath: "./src/template.ejs",
+        templateEjsLoaderOption: {
+          data: {
+            language: "en",
+            title: "Century Calculator",
+            yearLabel: "Year",
+            yearInputMax: null,
+            invalidFeedback: "Please, enter a whole number greater than zero.",
+            submitBtn: "Calculate",
+            centuryHeading: "Century:",
+            basePath: "./",
+            navImages,
+          },
+        },
       }),
     }),
     new HtmlWebpackPlugin({
       filename: "es/index.html",
       template: htmlWebpackPluginTemplateCustomizer({
-        templatePath: "./src/index.ejs",
-        templateEjsLoaderOption: { data: spanishPage },
+        templatePath: "./src/template.ejs",
+        templateEjsLoaderOption: {
+          data: {
+            language: "es",
+            title: "Calculadora del Siglo",
+            yearLabel: "Año",
+            yearInputMax: 399900,
+            invalidFeedback:
+              "Por favor, introduzca un número mayor que cero y menor que 399900.",
+            submitBtn: "Calcular",
+            centuryHeading: "Siglo:",
+            basePath: "../",
+            navImages,
+          },
+        },
       }),
     }),
     new HtmlWebpackPlugin({
       filename: "pt/index.html",
       template: htmlWebpackPluginTemplateCustomizer({
-        templatePath: "./src/index.ejs",
-        templateEjsLoaderOption: { data: portuguesePage },
+        templatePath: "./src/template.ejs",
+        templateEjsLoaderOption: {
+          data: {
+            language: "pt",
+            title: "Calculadora de Século",
+            yearLabel: "Ano",
+            yearInputMax: 399900,
+            invalidFeedback:
+              "Por favor, insira um número maior que zero e menor que 399900",
+            submitBtn: "Calcular",
+            centuryHeading: "Século:",
+            basePath: "../",
+            navImages,
+          },
+        },
       }),
     }),
   ],
