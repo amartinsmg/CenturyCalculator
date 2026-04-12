@@ -5,8 +5,8 @@
     @throws - An error message if the input is not a positive integer or greater than 4000.
  */
 
-function decimal2roman(num) {
-  const romanNumeralsMap = new Map([
+function decimal2roman(num: number): string {
+  const romanNumeralsMap: Map<number, string> = new Map([
     [1000, "M"],
     [900, "CM"],
     [500, "D"],
@@ -21,7 +21,7 @@ function decimal2roman(num) {
     [4, "IV"],
     [1, "I"],
   ]);
-  let romanNum = "";
+  let romanNum: string = "";
 
   if (isNaN(num) || num % 1 || num <= 0 || num >= 4000)
     throw "Enter an integer greater than 0 and less than 4000";

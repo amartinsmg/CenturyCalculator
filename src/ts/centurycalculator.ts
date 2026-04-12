@@ -1,5 +1,5 @@
-import decimal2ordinal from "./decimal2ordinal.js";
-import decimal2roman from "./decimal2roman.js";
+import decimal2ordinal from "./decimal2ordinal";
+import decimal2roman from "./decimal2roman";
 
 /**
   This function takes a year as input and returns the century the year belongs to.
@@ -8,7 +8,7 @@ import decimal2roman from "./decimal2roman.js";
     @throws - Throws an error if the input is not a positive integer number.
  */
 
-function centuryCalculate(year) {
+function centuryCalculate(year: number): number {
   if (isNaN(year) || year % 1 || year <= 0)
     throw "Enter a integer number greater than 0";
   return year % 100 === 0 ? year / 100 : Math.floor(year / 100) + 1;
@@ -23,15 +23,15 @@ function centuryCalculate(year) {
 */
 
 function main(
-  formSelector,
-  yearInputSelector,
-  outputSelector,
-  submitBtnSelector,
-) {
-  const form = document.querySelector(formSelector),
-    yearInput = document.querySelector(yearInputSelector),
-    centuryOutputDiv = document.querySelector(outputSelector),
-    submitBnt = document.querySelector(submitBtnSelector),
+  formSelector: string,
+  yearInputSelector: string,
+  outputSelector: string,
+  submitBtnSelector: string
+): void {
+  const form = document.querySelector(formSelector) as HTMLFormElement,
+    yearInput = document.querySelector(yearInputSelector) as HTMLInputElement,
+    centuryOutputDiv = document.querySelector(outputSelector) as HTMLElement,
+    submitBnt = document.querySelector(submitBtnSelector) as HTMLButtonElement,
     today = new Date();
 
   // This statement initializes the yearInput with the current year as its default value.

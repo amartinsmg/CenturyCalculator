@@ -1,0 +1,95 @@
+<!-- 
+  This code generates an HTML page with a form that takes a year input and calculates the century in which that year belongs.
+
+  The code uses the following properties from a JavaScript object passed as parameter:
+    @property language: a string that determines the language of the HTML page
+    @property title: a string that sets the title of the HTML page
+    @property yearLabel: a string that sets the label for the year input field
+    @property yearInputMax: a number that sets the maximum value for the year input field
+    @property invalidFeedback: a string that sets the invalid feedback message for the year input field
+    @property submitBtn: a string that sets the label for the submit button
+    @property centuryHeading: a string that sets the heading for the century output field
+    @property navImages: an array of objects to create language selection buttons in the header of the HTML page. Each object in navImages has the following properties:
+      @property link: a string that sets the relative path to the language-specific page
+      @property src: a string that sets the URL of the image file for the language button
+      @property alt: a string that sets the alternative text for the image file
+      @property title: a string that sets the title attribute for the image file
+ -->
+
+<!DOCTYPE html>
+<html lang="<%= language %>">
+
+<head>
+  <% const navImages=[ { link: "" , src: "../assets/usa-flag.png" , alt: "English" , title: "English" , }, { link: "es/"
+    , src: "../assets/spain-flag.png" , alt: "Español" , title: "Español" , }, { link: "pt/" ,
+    src: "../assets/brazil-flag.png" , alt: "Português" , title: "Português" , } ]; %>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      <%= title %>
+    </title>
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css" />
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <header class="py-4 d-md-flex justify-content-around">
+    <div>
+      <h1 class="text-center" id="Page-title">
+        <%= title %>
+      </h1>
+    </div>
+    <nav>
+      <ul class="nav justify-content-center">
+        <% for (let navImage of navImages) { %>
+          <li class="nav-item">
+            <a href="<%= (language !== "en" ? "../" : "" ) + navImage.link %>">
+              <img src="<%= navImage.src %>" alt="<%= navImage.alt %>" title="<%= navImage.title %>" class="lang-btn" />
+            </a>
+          </li>
+          <% } %>
+      </ul>
+    </nav>
+  </header>
+  <main class="container text-center py-4">
+    <form id="input-form">
+      <div class="form-group">
+        <label id="year-label" class="form-label fw-bold" for="year-input">
+          <%= yearLabel %>
+        </label>
+        <input class="form-input" type="number" min="1" max="<%= yearInputMax %>" id="year-input" name="year"
+          required />
+        <div class="invalid-feedback">
+          <%= invalidFeedback %>
+        </div>
+      </div>
+      <div class="form-group pt-3">
+        <button class="btn btn-primary" id="submit-btn" type="submit">
+          <%= submitBtn %>
+        </button>
+      </div>
+    </form>
+    <output id="output" class="row py-4">
+      <h5 class="col-sm-6 p-1 text-sm-end">
+        <%= centuryHeading %>
+      </h5>
+      <div class="col-sm-6 p-1 text-sm-start" id="century-output"></div>
+    </output>
+  </main>
+  <footer class="text-center w-100">
+    <p><small>Visit this project's <a href="https://github.com/amartinsmg/CenturyCalculator">repository</a>.<br>
+        Made by <a href="https://amartinsmg.github.io">amartinsmg</a>.
+        <a href="https://www.flaticon.com/free-icons/hourglass" title="hourglass icons">Hourglass icons created by
+          Freepik - Flaticon</a></small></p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -5,7 +5,7 @@
     @throws - If the input is not a positive integer.
  */
 
-function decimal2ordinal(num) {
+function decimal2ordinal(num: number): string {
   const mod10 = num % 10,
     mod100 = num % 100;
   if (isNaN(num) || num % 1 || num <= 0)
