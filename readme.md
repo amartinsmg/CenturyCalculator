@@ -2,6 +2,13 @@
 
 The Century Calculator is a personal project for a web calculator that takes the year from user input and displays the century.
 
+## Tech Stack
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E)
+![Webpack](https://img.shields.io/badge/Webpack-8DD6F9)
+![EJS](https://img.shields.io/badge/EJS-F0DB4F)
+![npm](https://img.shields.io/badge/npm-CB3837)
+
 ## Features
 
 - Supports three languages: English, Spanish and Portuguese.
@@ -16,13 +23,13 @@ To run the project in development mode, follow these steps:
 2. **Install** the dependencies by running
 
 ```sh
-yarn install
+npm install
 ```
 
 3. **Start** the development server by running
 
 ```sh
-yarn dev
+npm run dev
 ```
 
 Once the server is running, you can access the calculator by opening the URL provided in your terminal (usually `http://localhost:8080` or similar) in your web browser.
