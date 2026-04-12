@@ -1,5 +1,4 @@
-import "./main.css";
-import centuryCalculator from "./ts/centurycalculator";
+import centuryCalculator from "./centurycalculator.js";
 
 /**
   This statement calls the main function in centurycalculator.ts when the web page is fully loaded. It ensures that all necessary resources and
